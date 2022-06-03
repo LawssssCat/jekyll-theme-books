@@ -1,0 +1,118 @@
+theme: jekyll-theme-book
+
+# Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
+# and doesn't have a custom domain.
+baseurl: '/learn-index'
+
+# =========================================
+# seo 
+# =========================================
+# see https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/
+# tool [Rich Results Testing Tool] https://search.google.com/test/rich-results
+# tool [specifying social profiles] https://developers.google.com/search/docs/beginner/establish-business-details#add-your-sites-name-logo-and-social-links
+# =========================================
+
+# The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
+# If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
+# otherwise, the layout language will use the default value of 'en'.
+lang: zh-CN # zh-CN # Default is en_US. Takes priority over existing config key lang.
+locale:  # - Page-, post-, or document-specific locale information. Takes priority over existing front matter attribute lang.
+
+# Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
+timezone: Asia/Shanghai
+
+title: LEARN INDEX                           # the main title
+
+tagline: Index my learning notes.   # it will display as the sub-title
+
+description: >-                        # used by seo meta and the atom feed
+  Index my learning notes, such as JavaScript, TypeScript, sass/less, webpack, database, Java, GitHub settings, etc.
+
+# fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
+url: 'https://LawssssCat.github.io/learn-index' #  Note: site.github.url will be used by default.
+
+image:                           # URL to an image associated with the post, page, or document (e.g., /assets/page-pic.jpg)
+
+logo:                            # URL to a site-wide logo (e.g., /assets/your-company-logo.png)
+
+github:
+  username: LawssssCat             # change to your github username
+
+#facebook:
+#  app_id: 1234
+#  publisher: 1234
+#  admins: 1234
+
+#twitter:
+#  username: twitter_username            # change to your twitter username
+
+social:
+  # Change to your full name.
+  # It will be displayed as the default author of the posts and the copyright owner in the Footer
+  name: LawssssCat
+  email: 1191693505@qq.com             # change to your email address
+  links:
+    # The first element serves as the copyright owner's link
+    - https://github.com/LawssssCat       # change to your github homepage
+    # - https://twitter.com/username      # change to your twitter homepage
+    # Uncomment below to add more social links
+    # - https://www.facebook.com/username
+    # - https://www.linkedin.com/in/username
+
+google_site_verification:                  # fill in to your verification string
+
+# =========================================
+# exclude 
+# =========================================
+# see http://jch.penibelst.de/
+# =========================================
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+# =========================================
+# collections
+# =========================================
+
+collections:
+  navs:
+    output: true
+    sort_by: order
+
+# =========================================
+# defaults
+# =========================================
+
+defaults:
+  - scope:
+      path: ''
+      type: navs             # see `site.collections`
+    values:
+      layout: page
+      permalink: /:title/
+
+# =========================================
+# exclude 
+# =========================================
+
+exclude:
+  - /*.gemspec
+  - /LICENSE
+  - /README.md
+  - /.gitignore
+# - .sass-cache
+# - .jekyll-cache
+# - gemfiles
+# - Gemfile
+# - Gemfile.lock
+# - node_modules
+# - vendor/bundle/
+# - vendor/cache/
+# - vendor/gems/
+# - vendor/ruby/

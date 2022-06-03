@@ -1,0 +1,53 @@
+<!--
+
+  footer
+
+-->
+
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <span class="text-muted">
+        &copy; {{ 'now' | date: "%Y" }} 
+        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
+        {% if site.data.locales[lang].copyright.brief %}
+        <span data-toggle="tooltip" data-placement="top"
+          title="{{ site.data.locales[lang].copyright.verbose }}">{{ site.data.locales[lang].copyright.brief }}</span>
+        {% endif %}
+      </span>
+    </div>
+
+    <a href="{{ '/' | relative_url }}" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <!-- <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg> -->
+      <img class="logo bi me-4" width="40" src="{{ 'assets/images/books.svg' | relative_url }}"/>
+    </a>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      {% for entry in site.data.contact %}
+        {% capture url %}
+          {%- if entry.type == 'github' -%}
+            https://github.com/{{ site.github.username }}
+          {%- elsif entry.type == 'twitter' -%}
+            https://twitter.com/{{ site.twitter.username }}
+          {%- elsif entry.type == 'email' -%}
+            {%- assign email = site.social.email | split: '@' -%}
+            javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
+          {%- elsif entry.type == 'rss' -%}
+            {{ "/feed.xml" | relative_url }}
+          {%- else -%}
+            {{ entry.url }}
+          {%- endif -%}
+        {% endcapture %}
+
+        {% if url %}
+        <li class="ms-3">
+          <a class="link-dark" href="{{ url }}" aria-label="{{ entry.type }}" 
+          {%- unless entry.noblank -%}target="_blank" rel="noopener"{%- endunless -%} >
+          <span class="social-logo {{ entry.icon }} bi"></span>
+          </a>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </footer>
+</div>
