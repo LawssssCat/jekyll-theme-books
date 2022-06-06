@@ -1,11 +1,9 @@
 <!--
-
   footer
-
 -->
 
 <div class="container">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 my-4 border-top">
     <div class="col-md-4 d-flex align-items-center">
       <span class="text-muted">
         &copy; {{ 'now' | date: "%Y" }} 
@@ -17,9 +15,9 @@
       </span>
     </div>
 
-    <a href="{{ '/' | relative_url }}" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+    <a href="{{ '/' | relative_url }}" class="col-md-4 d-flex align-items-center justify-content-center mb-md-0 me-md-auto link-dark text-decoration-none">
       <!-- <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg> -->
-      <img class="logo bi me-4" width="40" src="{{ 'assets/images/books.svg' | relative_url }}"/>
+      <img class="logo" width="40" src="{{ 'assets/images/books.svg' | relative_url }}"/>
     </a>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

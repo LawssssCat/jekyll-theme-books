@@ -23,8 +23,10 @@ timezone: Asia/Shanghai
 
 title: LEARN INDEX                           # the main title
 
+# todo hook from data/locales
 tagline: Index my learning notes.   # it will display as the sub-title
 
+# todo hook from data/locales
 description: >-                        # used by seo meta and the atom feed
   Index my learning notes, such as JavaScript, TypeScript, sass/less, webpack, database, Java, GitHub settings, etc.
 

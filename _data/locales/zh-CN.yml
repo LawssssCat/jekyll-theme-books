@@ -1,7 +1,10 @@
+tagline: 文章分类为话题，话题整理为书本。
+description: 文章分类为话题，话题整理为书本。方便文章的管理和查阅。
+
 navs:
   about: 关于
   archives: 归档
-  
+  gallery: 图床
 books:
 
 copyright:
