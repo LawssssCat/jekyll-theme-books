@@ -7,4 +7,4 @@
 
 {{ site.categories }}
 
-{{ site.categories['books'] | size }}
+{{ site.categories['books'] | size }} 
