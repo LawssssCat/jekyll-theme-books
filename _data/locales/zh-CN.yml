@@ -5,7 +5,10 @@ navs:
   about: 关于
   archives: 归档
   gallery: 图床
+
 books:
+  title: 书库
+  description: 下面的书籍，你可以选择一本感兴趣的观看。
 
 copyright:
   # Shown at the bottom of the post

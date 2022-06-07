@@ -86,6 +86,9 @@ collections:
   navs:
     output: true
     sort_by: order
+  books:
+    output: true
+    sort_by: order
 
 # =========================================
 # defaults
@@ -98,7 +101,25 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-
+  - scope:
+      path: ''
+      type: books             # see `site.collections`
+    values:
+      layout: books
+      permalink: /books/:title/  
+      image: /assets/images/img-placeholder.svg
+      description: |
+        [作者很懒，并没有添加描述。]
+  - scope:
+      path: ''          # An empty string here means all files in the project
+      type: posts
+    values:
+      layout: book
+      # comments: true    # Enable comments in posts.
+      # toc: true         # Display TOC column in posts.
+      # DO NOT modify the following parameter unless you are confident enough
+      # to update the code of all other post links in this project.
+      permalink: /:categories/:title/
 # =========================================
 # exclude 
 # =========================================

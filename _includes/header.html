@@ -6,7 +6,7 @@
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="{{ '/' | relative_url }}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
         <!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg> -->
-        <img class="bi me-4" width="45" src="{{ 'assets/images/b.svg' | relative_url }}"/>
+        <img class="bi me-lg-4 me-0" width="45" src="{{ 'assets/images/b.svg' | relative_url }}"/>
       </a>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -19,7 +19,7 @@
         {% capture nav_name %}{{ nav.url | split: '/' }}{% endcapture %}
         <li>
           <!--class="nav-link px-2 text-secondary"-->
-          <a class="nav-link px-2 text-white" href="{{ nav.url | relative_url }}">{{ site.data.locales[lang].navs.[nav_name] | default: nav.title | upcase }}</a>
+          <a class="nav-link px-2 text-white" href="{{ nav.url | relative_url }}">{{ site.data.locales[site.lang].navs.[nav_name] | default: nav.title | upcase }}</a>
         </li>
         {% endfor %}
       </ul>
