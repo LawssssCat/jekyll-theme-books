@@ -2,6 +2,10 @@
 layout: page
 ---
 
+{% assign book_cur_id = page.url | split: '/books/' | last | split: '/' | first %}
+{%- assign book_cur = '' -%}
+{%- assign book_locale_cur = '' -%}
+
 <!-- offcanvas -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasBooks" aria-labelledby="offcanvasBooksLabel">
 
@@ -16,6 +20,10 @@ layout: page
       {% for book in site.books %}
         {% assign book_id = book.url | split: '/' | last %}
         {% assign book_locale = site.data.locales[site.lang].books[book_id] %}
+        {% if book_cur_id == book_id %}
+          {%- assign book_cur = book -%}
+          {%- assign book_locale_cur = book_locale -%}
+        {% endif %}
         <!-- {{book.docs[0].category}} -->
         <div class="col">
           <div class="card mb-3" style="max-width: 540px;">
@@ -26,10 +34,15 @@ layout: page
               <div class="col-md-8">
                 <div class="card-body">
                   <!-- todo 提示 -->
-                  {% assign book_enter_url = site.data['books'][book_id]['enter_url'] | default: '#' %}
-                  <a href="{{ book_enter_url | relative_url }}" class="card-title">
-                    {{ book_locale.name | default: book.name | default: book_id | upcase }}
-                  </a>
+                  {% assign book_enter_url = site.data['books'][book_id]['enter_url'] %}
+                  <div>
+                    <a href="{{ book_enter_url | relative_url | default: '#'}}" class="card-title">
+                      {{ book_locale.name | default: book.name | default: book_id | upcase }}
+                    </a>
+                    {% if book_cur_id == book_id %}
+                      <span class="badge bg-secondary rounded-pill mt-1" style="float: right;">Now</span>
+                    {% endif %}
+                  </div>
                   <p class="card-text">{{ book_locale.description | default: book.description }}</p>
                   <!-- last_modified_at -->
                   {% assign last_modified_at = site.data['books'][book_id]['last_modified_at'] %}
@@ -48,69 +61,80 @@ layout: page
 
 </div>
 
-<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasBooks" role="button" aria-controls="offcanvasBooks">
-  Link with href
-</a>
-<!-- sidebar / content -->
-<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+<!-- bootstrap flex shrink. see https://v5.bootcss.com/docs/5.1/utilities/flex/ -->
+<div class="d-flex">
 
-  <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-    <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-    <span class="fs-5 fw-semibold">Collapsible</span>
-  </a>
+  <div class="books-sidebar flex-shrink-1">
+  
+    <!-- sidebar / content -->
+    <div class=" p-3 bg-white">
+    
+      <a data-bs-toggle="offcanvas" href="#offcanvasBooks" role="button" aria-controls="offcanvasBooks" 
+      class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+        <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        <span class="fs-5 fw-semibold">
+          {{ book_locale_cur.name | default: book_cur.name | default: book_cur_id | upcase }} 
+        </span>
+        <span class="mx-3	fas fa-book	"> </span>
+      </a>
+    
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+            Home
+          </button>
+          <div class="collapse show" id="home-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-dark rounded">Overview</a></li>
+              <li><a href="#" class="link-dark rounded">Updates</a></li>
+              <li><a href="#" class="link-dark rounded">Reports</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+            Dashboard
+          </button>
+          <div class="collapse" id="dashboard-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-dark rounded">Overview</a></li>
+              <li><a href="#" class="link-dark rounded">Weekly</a></li>
+              <li><a href="#" class="link-dark rounded">Monthly</a></li>
+              <li><a href="#" class="link-dark rounded">Annually</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+            Orders
+          </button>
+          <div class="collapse" id="orders-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-dark rounded">New</a></li>
+              <li><a href="#" class="link-dark rounded">Processed</a></li>
+              <li><a href="#" class="link-dark rounded">Shipped</a></li>
+              <li><a href="#" class="link-dark rounded">Returned</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="border-top my-3"></li>
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+            Account
+          </button>
+          <div class="collapse" id="account-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-dark rounded">New...</a></li>
+              <li><a href="#" class="link-dark rounded">Profile</a></li>
+              <li><a href="#" class="link-dark rounded">Settings</a></li>
+              <li><a href="#" class="link-dark rounded">Sign out</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+  </div>
 
-  <ul class="list-unstyled ps-0">
-    <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-        Home
-      </button>
-      <div class="collapse show" id="home-collapse">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark rounded">Overview</a></li>
-          <li><a href="#" class="link-dark rounded">Updates</a></li>
-          <li><a href="#" class="link-dark rounded">Reports</a></li>
-        </ul>
-      </div>
-    </li>
-    <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-        Dashboard
-      </button>
-      <div class="collapse" id="dashboard-collapse">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark rounded">Overview</a></li>
-          <li><a href="#" class="link-dark rounded">Weekly</a></li>
-          <li><a href="#" class="link-dark rounded">Monthly</a></li>
-          <li><a href="#" class="link-dark rounded">Annually</a></li>
-        </ul>
-      </div>
-    </li>
-    <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-        Orders
-      </button>
-      <div class="collapse" id="orders-collapse">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark rounded">New</a></li>
-          <li><a href="#" class="link-dark rounded">Processed</a></li>
-          <li><a href="#" class="link-dark rounded">Shipped</a></li>
-          <li><a href="#" class="link-dark rounded">Returned</a></li>
-        </ul>
-      </div>
-    </li>
-    <li class="border-top my-3"></li>
-    <li class="mb-1">
-      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-        Account
-      </button>
-      <div class="collapse" id="account-collapse">
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark rounded">New...</a></li>
-          <li><a href="#" class="link-dark rounded">Profile</a></li>
-          <li><a href="#" class="link-dark rounded">Settings</a></li>
-          <li><a href="#" class="link-dark rounded">Sign out</a></li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+  <div class="flex-grow-1" style="background-color: pink;"></div>
 </div>
