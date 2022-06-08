@@ -1,0 +1,38 @@
+---
+layout: page
+---
+
+{% assign sidebar_title = 'ALL POSTS' %}
+{% assign sidebar_offcanvas_id = '' %}
+
+{%- capture sidebar_nav_list -%}
+  <ul class="list-unstyled ps-0">
+    <!-- category -->
+    {% for category in site.categories %} 
+    {% assign category_name = category[0] %}
+    {% assign category_posts = category[1] %}
+    <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#sl-{{category_name}}" aria-expanded="true">
+          {{ category_name | capitalize}}
+      </button>
+      <div class="collapse" id="sl-{{category_name}}">
+        <!-- posts -->
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          {% for post in category_posts %}
+          <li><a href="{{ post.url | relative_url }}" class="link-dark rounded">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+{%- endcapture -%}
+
+{% include frame-sidebar.html 
+
+  sidebar_title = sidebar_title 
+
+  sidebar_offcanvas_id = sidebar_offcanvas_id
+
+  sidebar_nav_list = sidebar_nav_list
+%}
