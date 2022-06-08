@@ -30,9 +30,9 @@ header {
       transition-property: width;
       transition-duration: 0.2s;
       transition-timing-function: ease;
-      width: 20em;
+      width: 15vw;
       &:focus {
-        width: 30em;
+        width: 35vw;
         background-color: var(--search-box-bg);
       }
     }
@@ -137,13 +137,50 @@ footer  {
       width: 100%;
     }
   }
+
+  background-color: var(--sidebar-bg);
+  
+  .books-sidebar-title {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--sidebar-text-color);
+    &:hover {
+      // color: var(--sidebar-text-hover-color);
+      text-shadow: 0.02em 0.02em ;
+      // text-decoration: underline;
+      // background-color: red;
+      .books-sidebar-title-icon {
+        // border: 1px solid;
+      }
+    }
+  }
+
+  .docs-sidebar-toggler {
+    margin-left: auto;
+    .bi-collapse {
+      display: none;
+    }
+    &:not(.collapsed) {
+      .bi-expand {
+        display: none;
+      }
+      .bi-collapse {
+        display: inline-block;
+      }
+    }
+    @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+      & {
+        display: none;
+      }
+    }
+  }
   
   .btn-toggle {
     display: inline-flex;
     align-items: center;
     padding: .25rem .5rem;
     font-weight: 600;
-    color: rgba(0, 0, 0, .65);
     background-color: transparent;
     border: 0;
     &:hover,
