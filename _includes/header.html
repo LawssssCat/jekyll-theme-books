@@ -26,11 +26,11 @@
         <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">{{site.title}}</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body d-flex flex-nowrap py-0">
+      <div class="offcanvas-body py-0">
 
         <hr class="d-md-none text-white-50">
-
-        <ul class="nav-menu-list navbar-nav flex-row flex-wrap bd-navbar-nav">
+        <!-- menu -->
+        <ul class="nav-menu-list navbar-nav flex-row bd-navbar-nav">
 
           {% for nav in site.navs %}
           {% capture nav_name %}{{ nav.url | split: '/' }}{% endcapture %}
@@ -42,8 +42,8 @@
         </ul>
 
         <hr class="d-md-none text-white-50">
-
-        <ul class="nav-social-list navbar-nav flex-row flex-wrap ms-md-auto">
+        <!-- icon -->
+        <ul class="nav-social-list navbar-nav flex-row ms-md-auto">
           {% for entry in site.data.contact %}
             {% capture url %}
               {%- if entry.type == 'github' -%}
