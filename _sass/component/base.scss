@@ -1,33 +1,97 @@
+html {
+  @include dark-scheme;
+}
+
 
 /* header */
-#header-search-box {
+header {
 
-  color: #fff;
-  background-color: var(--bs-dark);
-  border-color: var(--bs-gray);
-  font-size: 0.5rem;
-  padding: 0.225rem .75rem;
-  transition-property: width;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-  width: 30em;
-  &:focus {
-    width: 50em;
-    background-color: #FFF;
+  color: var(--topbar-text-color);
+  background-color: var(--topbar-wrapper-bg);
+
+  .navbar-toggler {
+    padding: 0;
+    margin: 0;
+    margin-left: 0.5em;
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      & {
+        display: none;
+      }
+    }
   }
-  @media screen and (max-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-    &, &:focus {
-      width: 100%;
+
+  .search-box {
+      input {
+      color: var(--topbar-text-color);
+      background-color: var(--bs-dark);
+      border-color: var(--bs-gray);
+      font-size: 0.5rem;
+      padding: 0.225rem .75rem;
+      transition-property: width;
+      transition-duration: 0.2s;
+      transition-timing-function: ease;
+      width: 20em;
+      &:focus {
+        width: 30em;
+        background-color: var(--search-box-bg);
+      }
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+      &, & input, & input:focus {
+        width: 100%;
+        // display: none;
+      }
+    }
+  }
+
+  .navbar-toggler, .nav-link, .social-logo{
+    color: var(--topbar-text-color);
+    // font-size: x-large;
+    &:hover {
+      color: var(--topbar-text-hover-color);
     }
   }
   
+
+
+  .offcanvas.offcanvas-end {
+    background-color: var(--topbar-wrapper-bg);
+    @media (min-width: map-get($grid-breakpoints, md)) {
+      & {
+        position: inherit;
+        visibility: visible!important;
+        transform: none;
+        transition: none;
+        flex-grow: 1;
+      }
+      .offcanvas-header { 
+        display: none; 
+      }
+      .offcanvas-body {
+        display: flex;
+      }
+    }
+  }
+
+
+
+  .navbar-min-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    @media screen and (max-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+      & {
+        width: 100%;
+      }
+    }
+  }
+
 }
 
-@media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-  header .container {
-    margin: auto 0;
-  }
-}
+
 
 /* footer */
 
@@ -37,9 +101,7 @@ footer  {
     width: 5em;
     
   }
-  .social-logo::before {
-    font-size: x-large;
-  }
+
 }
 
 /* offcanvas */

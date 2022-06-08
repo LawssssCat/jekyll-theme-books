@@ -1,0 +1,27 @@
+/*
+ * The syntax light mode typography colors
+ */
+
+@mixin dark-scheme {
+  /* Framework color */
+
+
+  /* Common color */
+
+  /* Sidebar */
+
+  /* Topbar */
+  --topbar-text-color: rgba(255,255,255,0.85);
+  --topbar-text-hover-color: #fff;
+  --topbar-wrapper-bg: #212529;
+  --search-box-bg: #FFF;
+
+  /* Home page */
+
+  /* Posts */
+
+  /* Categories */
+
+  /* Archive */
+
+} /* light-scheme */
