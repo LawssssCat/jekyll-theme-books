@@ -7,7 +7,7 @@ layout: page
 {%- assign book_locale_cur = '' -%}
 
 <!-- offcanvas -->
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasBooks" aria-labelledby="offcanvasBooksLabel">
+<div class="offcanvas-books offcanvas offcanvas-start" tabindex="-1" id="offcanvasBooks" aria-labelledby="offcanvasBooksLabel">
 
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">📚 {{ site.data.locales[site.lang].books.title | upcase }}</h5>
@@ -25,18 +25,18 @@ layout: page
           {%- assign book_locale_cur = book_locale -%}
         {% endif %}
         <!-- {{book.docs[0].category}} -->
-        <div class="col">
+        <div class="col offcanvas-books-item">
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
-              <div class="col-md-4">
-                <img src="{{ book.image | relative_url }}" class="img-fluid rounded-start" alt="...">
+              <div class="col-md-4 offcanvas-books-item-image-wrapper">
+                <a href="{{ book.url | relative_url }}">
+                  <img src="{{ book.image | relative_url }}" class="offcanvas-books-item-image img-fluid rounded-start" alt="...">
+                </a>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <!-- todo 提示 -->
-                  {% assign book_enter_url = site.data['books'][book_id]['enter_url'] %}
                   <div>
-                    <a href="{{ book_enter_url | relative_url | default: '#'}}" class="card-title">
+                    <a href="{{ book.url | relative_url }}" class="offcanvas-books-item-title">
                       {{ book_locale.name | default: book.name | default: book_id | upcase }}
                     </a>
                     {% if book_cur_id == book_id %}
@@ -91,11 +91,14 @@ layout: page
     <nav class="bd-links collapse px-2" id="bd-docs-nav" aria-label="Docs navigation" style="">
       
       <ul class="list-unstyled ps-0">
+
+        {% for doc in book_cur.docs %}
+          {{ doc }}
         <li class="mb-1">
-          <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-            Home
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#sl-{{doc.category}}" aria-expanded="true">
+              {{ doc.name }}
           </button>
-          <div class="collapse show" id="home-collapse">
+            <div class="collapse show" id="sl-{{doc.category}}">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li><a href="#" class="link-dark rounded">Overview</a></li>
               <li><a href="#" class="link-dark rounded">Updates</a></li>
@@ -103,6 +106,8 @@ layout: page
             </ul>
           </div>
         </li>
+        {% endfor %}
+
         <li class="mb-1">
           <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
             Dashboard

@@ -33,15 +33,15 @@ Jekyll::Hooks.register(:site, :pre_render) do |site|
     set_site_data(site, book_id, 'post_num', post_num)
 
     # site.data.books.{id}.enter_url
-    if post_num > 0
-      enter_url = site.categories[book_id][0].url
-      site.categories[book_id].each do | post | 
-        if post['enter'] 
-          enter_url = post.url
-        end
-      end
-      set_site_data(site, book_id, 'enter_url', enter_url)
-    end
+    # if post_num > 0
+    #   enter_url = site.categories[book_id][0].url
+    #   site.categories[book_id].each do | post | 
+    #     if post['enter'] 
+    #       enter_url = post.url
+    #     end
+    #   end
+    #   set_site_data(site, book_id, 'enter_url', enter_url)
+    # end
 
     # site.data.books.{id}.last_modified_at
     if post_num > 0

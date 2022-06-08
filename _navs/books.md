@@ -1,4 +1,4 @@
 ---
-layout: book
+layout: books
 order: 2
 ---
