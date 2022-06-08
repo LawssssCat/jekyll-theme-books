@@ -2,7 +2,8 @@
 layout: page
 ---
 
-{% assign book_cur_id = page.url | split: '/books/' | last | split: '/' | first %}
+{% assign book_cur_id = page.url | split: '#' | first | split: '?' | first | split: '/books/' | last | split: '/' | first  %}
+<!-- book_cur_id {{book_cur_id}} -->
 {%- assign book_cur = '' -%}
 {%- assign book_locale_cur = '' -%}
 
