@@ -3,7 +3,7 @@
 -->
 <header class="navbar p-2">
 
-  <nav class="container-xxl flex-lg-nowrap m-0 py-0 px-1">
+  <nav class="container-xxl d-flex flex-lg-nowrap m-0 py-0 px-1">
 
     <div class="navbar-min-list">
       <a href="{{ '/' | relative_url }}" class="navbar-brand ">
@@ -21,12 +21,12 @@
       </button>
     </div>
 
-    <div class=" offcanvas offcanvas-end" id="offcanvas-navbar"  tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+    <div class="d-flex flex-nowrap offcanvas offcanvas-end" id="offcanvas-navbar"  tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
       <div class="offcanvas-header pb-0">
         <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">{{site.title}}</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body py-0">
+      <div class="offcanvas-body d-flex flex-nowrap py-0">
 
         <hr class="d-md-none text-white-50">
 
