@@ -36,8 +36,12 @@
 
   --books-sidebar-title-hheight: 2.5em;
   background-color: var(--sidebar-bg);
+  // transition-property: all ;
+  // transition-duration: 1s;
+  // transition-timing-function: ease;
 
   @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    min-width: 12em;
     max-width: 16em;
     // width: 20em;
     position: sticky;

@@ -91,23 +91,24 @@ layout: page
     <nav class="bd-links collapse px-2" id="bd-docs-nav" aria-label="Docs navigation" style="">
       
       <ul class="list-unstyled ps-0">
-
+        <!-- category -->
         {% for doc in book_cur.docs %}
-          {{ doc }}
         <li class="mb-1">
             <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#sl-{{doc.category}}" aria-expanded="true">
-              {{ doc.name }}
+              {{ doc.name | default: doc.category | capitalize}}
           </button>
-            <div class="collapse show" id="sl-{{doc.category}}">
+          <div class="collapse show" id="sl-{{doc.category}}">
+            <!-- posts -->
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-dark rounded">Overview</a></li>
-              <li><a href="#" class="link-dark rounded">Updates</a></li>
-              <li><a href="#" class="link-dark rounded">Reports</a></li>
+              {% for post in site.categories[doc.category] %}
+              <li><a href="{{ post.url | relative_url }}" class="link-dark rounded">{{ post.title }}</a></li>
+              {% endfor %}
             </ul>
           </div>
         </li>
         {% endfor %}
 
+        <!-- 
         <li class="mb-1">
           <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
             Dashboard
@@ -173,7 +174,8 @@ layout: page
               <li><a href="#" class="link-dark rounded">Sign out</a></li>
             </ul>
           </div>
-        </li>
+        </li> -->
+
       </ul>
     </nav> <!-- collapse -->
 
