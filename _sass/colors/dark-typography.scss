@@ -8,8 +8,11 @@
   /* Common color */
 
   /* Sidebar */
-  --sidebar-text-color: #34343c;
-  --sidebar-text-hover-color: #000;
+  --sidebar-title-text-color: #34343c;
+  --sidebar-title-text-hover-color: #000;
+  --sidebar-post-link-text-color: var(--sidebar-title-text-color);
+  --sidebar-post-link-text-hover-color: var(--sidebar-title-text-hover-color);
+  --sidebar-post-link-bg-hover-color: #d2f4ea;
   --sidebar-bg: rgba(255,255,255,0.85);
   --sidebar-shadow: #b1b0b070;
 
