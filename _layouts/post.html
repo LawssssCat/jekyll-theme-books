@@ -2,9 +2,14 @@
 layout: page
 ---
 
-{% assign book_cur_id = page.url | split: '/books/' | last | split: '/' | first %}
-{%- assign book_cur = '' -%}
-{%- assign book_locale_cur = '' -%}
+{% assign book_cur_id = page.url | split: '?' | first | split: '#' | first | split: '/books/' | last | split: '/' | first %}
+{% assign book_cur_info = site.data['books'][book_cur_id] %}
+{% if book_cur_info == nil %}
+<div class="alert alert-danger mb-0" role="alert">
+  Sorry, we can't find the post you clicked on. <br>Maybe the post was shifted or some configuration is wrong. Please contact the webmaster
+  <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
+</div>
+{% endif %}
 
 <!-- offcanvas -->
 <div class="offcanvas-books offcanvas offcanvas-start" tabindex="-1" id="offcanvasBooks" aria-labelledby="offcanvasBooksLabel">
@@ -17,35 +22,31 @@ layout: page
   <div class="offcanvas-body">
 
     <div class="row row-cols-1 mt-3">
-      {% for book in site.books %}
-        {% assign book_id = book.url | split: '/' | last %}
-        {% assign book_locale = site.data.locales[site.lang].books[book_id] %}
-        {% if book_cur_id == book_id %}
-          {%- assign book_cur = book -%}
-          {%- assign book_locale_cur = book_locale -%}
-        {% endif %}
+      {% for entry in site.data['books'] %}
+        {% assign book_id = entry[0] %}
+        {% assign book_info = entry[1] %}
         <!-- {{book.docs[0].category}} -->
         <div class="col offcanvas-books-item">
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4 offcanvas-books-item-image-wrapper">
-                <a href="{{ book.url | relative_url }}">
-                  <img src="{{ book.image | relative_url }}" class="offcanvas-books-item-image img-fluid rounded-start" alt="...">
+                <a href="{{ book_info['enter_url'] | relative_url }}">
+                  <img src="{{ book_info['image'] | relative_url }}" class="offcanvas-books-item-image img-fluid rounded-start" alt="...">
                 </a>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
                   <div>
-                    <a href="{{ book.url | relative_url }}" class="offcanvas-books-item-title">
-                      {{ book_locale.name | default: book.name | default: book_id | upcase }}
+                    <a href="{{ book_info['enter_url'] | relative_url }}" class="offcanvas-books-item-title">
+                      {{ book_info['name'] | capitalize }}
                     </a>
                     {% if book_cur_id == book_id %}
                       <span class="badge bg-secondary rounded-pill mt-1" style="float: right;">Now</span>
                     {% endif %}
                   </div>
-                  <p class="card-text">{{ book_locale.description | default: book.description }}</p>
+                  <p class="card-text">{{ book_info['description'] | capitalize }}</p>
                   <!-- last_modified_at -->
-                  {% assign last_modified_at = site.data['books'][book_id]['last_modified_at'] %}
+                  {% assign last_modified_at = book_info['last_modified_at'] %}
                   {% if last_modified_at %}
                   <p class="card-text"><small class="text-muted">latest update {{ last_modified_at | date: "%Y-%m-%d"  }}</small></p>
                   {% endif %}
@@ -71,7 +72,7 @@ layout: page
       <a class='books-sidebar-title' data-bs-toggle="offcanvas" href="#offcanvasBooks" role="button" aria-controls="offcanvasBooks" >
         <span class="books-sidebar-title-icon p-1 fas fa-book"> </span>
         <span class="fs-5 fw-semibold">
-          {{ book_locale_cur.name | default: book_cur.name | default: book_cur_id | upcase }} 
+          {{ book_cur_info['name'] | capitalize }}
         </span>
       </a>
       <!--siderbar collapse btn  -->

@@ -3,15 +3,23 @@ $logger.debug('Load Module BookData...')
 class BooksData
 
   def insert_default_value(site, book_id, book_info) 
+    # default value define in config 
     _config_books = site.config['books']
-    _config_books || return 
-    $logger.debug("books default config #{_config_books}")
-    _config_books.each do | key, value | 
-      _value = book_info[key]
-      if !_value 
-        book_info[key] = value
+    if _config_books != nil 
+      $logger.debug("books default config #{_config_books}")
+      _config_books.each do | key, value | 
+        _value = book_info[key]
+        if !_value 
+          book_info[key] = value
+        end
       end
     end
+
+    # default value in code logic
+    if book_info['name'] == nil
+      book_info['name'] = book_id
+    end
+
   end
 
   # 'front matter define' or 'longest publish post of first category'
