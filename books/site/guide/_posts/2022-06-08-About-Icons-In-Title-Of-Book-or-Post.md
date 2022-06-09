@@ -1,3 +1,6 @@
+---
+title: About Icons in Title of Books or Posts
+---
 
 `_config.yml`
 
