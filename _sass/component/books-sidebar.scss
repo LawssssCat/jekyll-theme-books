@@ -84,10 +84,10 @@
 
   .book-sidebar-topic-list-wrapper {
     overflow-y: auto;
-    min-height: calc(90vh - var(--books-sidebar-title-hheight));
     max-height: calc(100vh - var(--books-sidebar-title-hheight));
     padding-top: 0.3em;
     @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+      min-height: calc(90vh - var(--books-sidebar-title-hheight));
       display: block !important;
     }
 
