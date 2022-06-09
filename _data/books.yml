@@ -1,0 +1,39 @@
+backend:
+  name: 后端
+  docs:
+    - 
+      category: java
+    -
+      category: spring
+
+frontend:
+  name: 前端
+  image: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png
+  description: |
+    前端技术。如：JavaScript、CSS、TypeScript、Less/Sass、webpack、...
+  docs:
+    - 
+      category: javascript
+    - 
+      category: typescript
+
+laboratory:
+  name: 实验室
+  description: |
+    一些有趣的实验或者工具
+  docs:
+    - 
+      category: tools
+
+site:
+  name:
+  description: | 
+    关于本网站的一些文章，如：指引、测试、...
+  image:
+  docs: 
+    - 
+      name: 指引
+      category: guide
+    - 
+      name: 测试
+      category: test

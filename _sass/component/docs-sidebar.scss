@@ -38,8 +38,8 @@
   background-color: var(--sidebar-bg);
 
   @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-    max-width: 16em;
-    // width: 20em;
+    // max-width: 16em;
+    width: 16em;
     position: sticky;
     top: 0;
     overflow: auto;

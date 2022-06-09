@@ -102,15 +102,6 @@ defaults:
       layout: page
       permalink: /:title/
   - scope:
-      path: ''
-      type: books             # see `site.collections`
-    values:
-      layout: book
-      permalink: /books/:title/  
-      image: /assets/images/img-placeholder.svg
-      description: |
-        [作者很懒，并没有添加描述。]
-  - scope:
       path: ''          # An empty string here means all files in the project
       type: posts
     values:
@@ -120,6 +111,12 @@ defaults:
       # DO NOT modify the following parameter unless you are confident enough
       # to update the code of all other post links in this project.
       permalink: /:categories/:title/
+
+books: # books default info
+  image: /assets/images/img-placeholder.svg
+  description: |
+    [作者很懒，并没有添加描述。]
+
 # =========================================
 # exclude 
 # =========================================
