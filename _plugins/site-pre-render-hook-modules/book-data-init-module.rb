@@ -2,6 +2,16 @@ $logger.debug('Load Module BookData...')
 
 class BooksData
 
+  def get_book_icon(site)
+    _icon_list = site.config['books_icons'];
+    if @book_icon_num==nil or @book_icon_num >= _icon_list.size 
+      @book_icon_num = 0
+    end
+    _icon = _icon_list[@book_icon_num]
+    @book_icon_num+=1
+    return _icon
+  end 
+
   def insert_default_value(site, book_id, book_info) 
     # default value define in config 
     _config_books = site.config['books']
@@ -23,6 +33,9 @@ class BooksData
     book_info['docs'].each do | doc |
       if doc['name'] == nil 
         doc['name'] = doc['category']
+      end
+      if doc['icon'] == nil
+        doc['icon'] = get_book_icon(site)
       end
     end
 

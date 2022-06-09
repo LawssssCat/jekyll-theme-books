@@ -74,9 +74,9 @@ layout: page
     
     <div class="d-flex align-items-center books-sidebar-title-wrapper pb-1">
       <a class='books-sidebar-title' data-bs-toggle="offcanvas" href="#offcanvasBooks" role="button" aria-controls="offcanvasBooks" >
-        <span class="books-sidebar-title-icon p-1 fas fa-book"> </span>
+        <!-- <span class="books-sidebar-title-icon p-1 fas fa-book"> </span> -->
         <span class="fs-5 fw-semibold">
-          {{ book_cur_info['name'] | capitalize }}
+          {{ book_cur_info['icon'] }} {{ book_cur_info['name'] | capitalize }}
         </span>
       </a>
       <!--siderbar collapse btn  -->
@@ -98,19 +98,22 @@ layout: page
       <ul class="book-sidebar-topic-list list-unstyled ps-0">
 
         {% for doc in book_cur_info['docs'] %}
-          {% assign topic_show = ''%}
-          {% assign topic_show_icon = ''%}
           {% assign topic_show_active = ''%}
           {% if doc['category'] == topic_cur_id %}
-            {% assign topic_show = 'show' %}
-            {% assign topic_show_icon = 'aria-expanded="true"' %}
-            {% assign topic_show_active = 'active' %}
+            {% assign topic_show_active = 'active' %} <!-- unused -->
           {% endif %}
         <li class="book-sidebar-topic mb-1">
-          <button class="btn btn-toggle align-items-center rounded collapsed {{ topic_show_active }}" data-bs-toggle="collapse" data-bs-target="#sl-{{ doc['category'] }}" {{ topic_show_icon }} >
+          <!-- <button class="btn btn-toggle align-items-center rounded collapsed {{ topic_show_active }}" data-bs-toggle="collapse" data-bs-target="#sl-{{ doc['category'] }}" aria-expanded="true" > -->
+          <span class="btn btn-toggle align-items-center rounded collapsed {{ topic_show_active }}"  >
+            {% assign doc_icon_in_book = book_cur_info['doc_icon'] %}
+            {% assign doc_icon = doc['icon'] %}
+            {% if doc_icon == 'none' or doc_icon_in_book == 'none' %}
+            {% else %}
+              {{ doc['icon'] }}
+            {% endif %}
             {{ doc['name'] | capitalize}}
-          </button>
-          <div class="collapse {{ topic_show }}" id="sl-{{ doc['category'] }}">
+          </span>
+          <div class="collapse show" id="sl-{{ doc['category'] }}">
             <ul class="book-sidebar-post-list btn-toggle-nav list-unstyled fw-normal pb-1 small">
               {% for post in doc['posts'] %}
                 {% assign post_active = '' %}

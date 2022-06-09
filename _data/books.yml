@@ -1,3 +1,5 @@
+# icon. see https://getemoji.com/
+
 backend:
   name: 后端
   docs:
@@ -13,8 +15,10 @@ frontend:
     前端技术。如：JavaScript、CSS、TypeScript、Less/Sass、webpack、...
   docs:
     - 
+      icon: none
       category: javascript
     - 
+      icon:  none
       category: typescript
 
 laboratory:
@@ -32,8 +36,10 @@ site:
   image:
   docs: 
     - 
+      icon: 💡 
       name: 指引
       category: guide
     - 
+      icon: 🚀
       name: 测试
       category: test

@@ -113,9 +113,15 @@ defaults:
       permalink: /:categories/:title/
 
 books: # books default info
+  # icon: 📖
   image: /assets/images/img-placeholder.svg
   description: |
     [作者很懒，并没有添加描述。]
+
+books_icons: # books default icon. see https://getemoji.com/
+  - 🏷
+  - ✨
+  - 💡
 
 # =========================================
 # exclude 
