@@ -1,7 +1,6 @@
 /*
  * The syntax light mode typography colors
  */
-
 @mixin dark-scheme {
   /* Framework color */
 
@@ -15,11 +14,15 @@
   --sidebar-shadow: #b1b0b070;
 
   /* Topbar */
-  --topbar-text-color: rgba(255,255,255,0.85);
-  --topbar-text-hover-color: #fff;
-  --topbar-wrapper-bg: #212529;
-  --search-box-bg: #FFF;
-
+  --topbar-text-color: var(--bs-white);
+  --topbar-text-hover-color: var(--bs-gray-400);
+  --topbar-wrapper-bg: var(--bs-gray-800);
+  --search-box-text-color: var(--topbar-text-color);
+  --search-box-placeholder-text-color: var(--bs-gray-400);
+  --search-box-focus-bg-color: var(--bs-white);
+  --search-box-bg-color: var(--topbar-wrapper-bg);
+  --search-box-border-color: var(--bs-gray-600);
+  
   /* Home page */
 
   /* Posts */

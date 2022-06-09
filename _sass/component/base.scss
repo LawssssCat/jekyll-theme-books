@@ -2,17 +2,33 @@ html {
   @include dark-scheme;
 }
 
+body {
+  font-size: 16px;
+}
+
 
 /* header */
 header {
-
+  --navbar-brand-margin-end: 16px;
   color: var(--topbar-text-color);
   background-color: var(--topbar-wrapper-bg);
+  padding: 0.75rem 0;
+  font-size: 1em;
+
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+    margin-right:  var(--navbar-brand-margin-end);
+    .logo {
+      display: block;
+      width: 40px;
+    }
+  }
 
   .navbar-toggler {
     padding: 0;
     margin: 0;
-    margin-left: 0.5em;
+    margin-left:  var(--navbar-brand-margin-end);
     @media (min-width: map-get($grid-breakpoints, md)) {
       & {
         display: none;
@@ -21,19 +37,26 @@ header {
   }
 
   .search-box {
-      input {
-      color: var(--topbar-text-color);
-      background-color: var(--bs-dark);
-      border-color: var(--bs-gray);
-      font-size: 0.5rem;
-      padding: 0.225rem .75rem;
-      transition-property: width;
-      transition-duration: 0.2s;
-      transition-timing-function: ease;
+    input {
+      color: var(--search-box-text-color);
+      background-color: var(--search-box-bg-color);
+      border-color: var(--search-box-border-color);
+      font-size: 0.80em;
+      padding: 0.25em .75em;
       width: 15vw;
+      &::placeholder {
+        color: var(--search-box-placeholder-text-color);
+      }
       &:focus {
         width: 35vw;
-        background-color: var(--search-box-bg);
+        background-color: var(--search-box-focus-bg-color);
+      }
+    }
+    @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+      & input {
+        transition-property: width;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
       }
     }
     @media screen and (max-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
@@ -45,6 +68,7 @@ header {
   }
 
   .navbar-toggler, .nav-link, .social-logo{
+    // font-size: 1em;
     color: var(--topbar-text-color);
     // font-size: x-large;
     &:hover {
