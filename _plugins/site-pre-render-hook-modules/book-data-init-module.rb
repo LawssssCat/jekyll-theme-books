@@ -20,6 +20,12 @@ class BooksData
       book_info['name'] = book_id
     end
 
+    book_info['docs'].each do | doc |
+      if doc['name'] == nil 
+        doc['name'] = doc['category']
+      end
+    end
+
   end
 
   # 'front matter define' or 'longest publish post of first category'

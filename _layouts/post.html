@@ -93,15 +93,15 @@ layout: page
       
       <ul class="list-unstyled ps-0">
 
-        {% for doc in book_cur.docs %}
+        {% for doc in book_cur_info['docs'] %}
         <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#sl-{{doc.category}}" aria-expanded="true">
-              {{ doc.name | default: doc.category }}
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#sl-{{doc['category']}}" aria-expanded="true">
+              {{ doc['name'] | capitalize}}
           </button>
-            <div class="collapse show" id="sl-{{doc.category}}">
+            <div class="collapse show" id="sl-{{doc['category']}}">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              {% for post in site.categories[doc.category] %}
-              <li><a href="{{ post.url | relative_url }}" class="link-dark rounded">{{ post.title }}</a></li>
+              {% for post in doc['posts'] %}
+              <li><a href="{{ post['url'] | relative_url }}" class="link-dark rounded">{{ post['title'] }}</a></li>
               {% endfor %}
             </ul>
           </div>
