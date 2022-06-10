@@ -77,6 +77,8 @@ Before running for the first time, go to the root directory of your site, and in
 $ bundle install 
 ```
 
+> Bas network? try this [post]({{ '/books/ruby/install/更换国内源/' | relative_url }}). 
+
 ## Usage
 
 ### Configuration
