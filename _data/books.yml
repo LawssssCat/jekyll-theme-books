@@ -10,11 +10,18 @@ javascript:
       category: syntax
 
 typescript:
+  image: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png
   name: TypeScript
   docs:
     - 
       icon: none
       category: syntax
+
+ruby: 
+  image: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/ruby/ruby.png
+  docs: 
+    - 
+      category: install
 
 laboratory:
   name: 实验室
