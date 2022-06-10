@@ -1,4 +1,15 @@
 
+/* main-wrapper */
+
+.post-main-content-wrapper {
+  @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    flex-wrap: nowrap;
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    flex-wrap: wrap;
+  }
+}
+
 /* offcanvas */
 
 .offcanvas-books {
@@ -171,11 +182,4 @@
     }
   }
   
-}
-
-/* for development */
-#main {
-  div {
-    border: 1px solid palegreen;
-  }
 }
