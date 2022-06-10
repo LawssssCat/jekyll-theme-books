@@ -78,6 +78,10 @@ class BooksData
           _post_info['url'] = post.url
           _post_info['date'] = post.date
           _post_info['last_modified_at'] = post['last_modified_at']
+          _pin = post['pin']
+          _post_info['pin'] = _pin if _pin
+          _order = post['order']
+          _post_info['order'] = _order if _order != nil
           _post_list[_i] = _post_info
           _i=_i+1
         end
@@ -86,7 +90,34 @@ class BooksData
     end
   end
 
-
+  def sort_post_in_topic(book_info)
+    book_info['docs'].each do | category_info | 
+      _post_list = category_info['posts']
+      if _post_list != nil
+        _post_list_1 = _post_list.select { | p | 
+          p['order'] != nil 
+        } 
+        _post_list_2 = _post_list.select { | p | 
+          p['order'] == nil 
+        } 
+        if $logger.debug? 
+          $logger.debug("#{_post_list_1.size} + #{_post_list_2.size} = #{_post_list.size}")
+          $logger.debug('order')
+          _post_list_1.each do | post | 
+            $logger.debug(post['url'])
+          end
+          $logger.debug('no order')
+          _post_list_2.each do | post | 
+            $logger.debug(post['url'])
+          end
+        end
+        _post_list_1.sort! { | p1, p2 | p1['order'] - p2['order'] }
+        _post_list_2.sort! { | p1, p2 | p1['date'] - p2['date'] }
+        _post_list = _post_list_1 + _post_list_2
+      end
+      category_info['posts'] = _post_list
+    end
+  end
 
 
 
@@ -132,6 +163,9 @@ class BooksData
 
       # insert enter url. 
       insert_enter_url(site, book_id, book_info)
+
+      # sort post in a topic( category#2 )
+      sort_post_in_topic(book_info)
     end # end 'books' each 
 
     # debug. info show in console.

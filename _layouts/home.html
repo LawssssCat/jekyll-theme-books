@@ -3,7 +3,33 @@ layout: default
 ---
 
 <ul>
-{% for post in site.posts %}
-<li><a href="{{ post.url | relative_url }}">{{post.title}}</a></li>
+{% assign pinned = site.posts | where: "pin", "true" %}
+{% assign default = site.posts | where_exp: "item", "item.pin != true" %}
+
+{% assign pinned_num = pinned | size %}
+{% assign default_num = default | size %}
+
+{% assign pinned_end = pinned_num | minus: 1 %}
+{% assign default_num = default_num | minus: 1 %}
+
+{% assign posts = "" | split: "" %}
+
+{% for i in (0 .. pinned_end) %}
+  {% assign posts = posts | push: pinned[i] %}
+{% endfor %}
+{% for i in (0 .. default_num) %}
+  {% assign posts = posts | push: default[i] %}
+{% endfor %}
+
+{% for post in posts %}
+<li>
+  <a href="{{ post.url | relative_url }}">{{post.title}}</a>
+  {% if post.pin %}
+  <div class="pin">
+    <i class="fas fa-thumbtack fa-fw"></i>
+    <span>pin</span>
+  </div>
+  {% endif %}
+</li>
 {% endfor %}
 </ul>

@@ -2,6 +2,7 @@
 title: Getting Started
 tags: [getting started]
 pin: true
+order: 1
 ---
 
 ## Prerequisites
