@@ -1,25 +1,20 @@
 # icon. see https://getemoji.com/
 
-backend:
-  name: 后端
-  docs:
-    - 
-      category: java
-    -
-      category: spring
-
-frontend:
-  name: 前端
+javascript:
+  name: JavaScript
   image: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png
   description: |
-    前端技术。如：JavaScript、CSS、TypeScript、Less/Sass、webpack、...
+    记录 JavaScript 基本语法、版本特性、好用的框架、...
+  docs:
+    - name: 基本语法
+      category: syntax
+
+typescript:
+  name: TypeScript
   docs:
     - 
       icon: none
-      category: javascript
-    - 
-      icon:  none
-      category: typescript
+      category: syntax
 
 laboratory:
   name: 实验室

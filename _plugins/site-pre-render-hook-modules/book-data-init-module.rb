@@ -58,17 +58,19 @@ class BooksData
     $logger.debug("enter url: #{_enter_url}")
   end
 
-  def insert_post_url(site, book_id, book_info) 
+  def insert_post_info(site, book_id, book_info, book_posts) 
     book_info['docs'].each do | category_info |
       _category_id = category_info['category']
       $logger.debug(_category_id)
-      _post_num = site.categories[_category_id].size
+      # posts under book and category(topic)
+      _posts = site.categories[_category_id] & book_posts
+      _post_num =_posts.size
       category_info['post_num'] = _post_num
 
       if _post_num > 0 
         _post_list = Array.new(_post_num)
         _i=0
-        site.categories[_category_id].each do | post | 
+        _posts.each do | post | 
           _post_info = Hash.new
           $logger.debug(post.url)
           $logger.debug(post.date) # newer posts are priority
@@ -107,14 +109,15 @@ class BooksData
       insert_default_value(site, book_id, book_info)
 
       # insert post number 
-      _post_num = site.categories[book_id].size
-      book_info['post_num'] = _post_num
+      _book_posts = site.categories[book_id]
+      _book_posts_num = _book_posts.size
+      book_info['post_num'] = _book_posts_num
 
       # insert last post last_modified_at 
-      if _post_num > 0 
-        time_list = Array.new(_post_num)
+      if _book_posts_num > 0 
+        time_list = Array.new(_book_posts_num)
         i=0
-        site.categories[book_id].each do | post | 
+        _book_posts.each do | post | 
           time_list[i] = post['last_modified_at']
           i=i+1
         end
@@ -125,7 +128,7 @@ class BooksData
       end
 
       # insert post url
-      insert_post_url(site, book_id, book_info)
+      insert_post_info(site, book_id, book_info, _book_posts)
 
       # insert enter url. 
       insert_enter_url(site, book_id, book_info)
