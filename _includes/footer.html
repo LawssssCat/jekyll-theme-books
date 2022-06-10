@@ -27,7 +27,7 @@
           <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
         {% endcapture %}
         {% capture _theme %}
-          <a href="https://github.com/LawssssCat/jekyll-theme-books" target="_blank" rel="noopener">Books</a>
+          <a href="{{ site.data['theme']['url'] }}" target="_blank" rel="noopener">{{ site.data['theme']['nickname'] | capitalize }}</a>
         {% endcapture %}
         {{ site.data.locales[site.lang].meta
           | default: 'Powered by :PLATFORM with :THEME theme.'
