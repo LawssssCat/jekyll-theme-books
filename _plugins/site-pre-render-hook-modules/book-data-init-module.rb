@@ -161,11 +161,13 @@ class BooksData
       # insert post url
       insert_post_info(site, book_id, book_info, _book_posts)
 
-      # insert enter url. 
-      insert_enter_url(site, book_id, book_info)
-
       # sort post in a topic( category#2 )
       sort_post_in_topic(book_info)
+
+      # need to sort first ==================================================
+
+      # insert enter url. 
+      insert_enter_url(site, book_id, book_info)
     end # end 'books' each 
 
     # debug. info show in console.
