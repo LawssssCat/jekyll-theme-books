@@ -4,32 +4,18 @@ $switch-sidebar-layout-1: lg;
 
 .page-main-content-wrapper {
   flex-wrap: nowrap;
-  @media screen and (max-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-    flex-wrap: wrap;
-  }
 
   .page-main-content {
     overflow: visible; 
     width: 100%;/* visible for panel sticky. but don't know why, if it is missing, the content will overflow. */
     .post-content-wrapper {
       overflow: auto;
-
-      @media screen and (min-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) {
-        & {
-          max-width: 80vw;
-        }
-      }
       .post-title-wrapper {
         flex-wrap: wrap;
       }
       .post-description {
         font-size: calc(1.275rem + .3vw);
         font-weight: 300;
-        @media screen and (min-width: map-get($grid-breakpoints, xl)) {
-          & {
-              font-size:1.5rem;
-          }
-        }
       }
     }
   
@@ -41,6 +27,25 @@ $switch-sidebar-layout-1: lg;
       }
     }
   }
+
+  @media screen and (max-width: map-get($grid-breakpoints, lg)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    &, .page-main-content {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media screen and (min-width: calc(#{map-get($grid-breakpoints, lg)} - 1px)) {
+    .page-main-content {
+      max-width: 80vw;
+    }
+  }
+
+  @media screen and (min-width: calc(#{map-get($grid-breakpoints, xl)} - 1px)) {
+    .page-main-content .post-content-wrapper .post-description {
+        font-size:1.5rem;
+    }
+  }
+
 }
 
 /* offcanvas */
@@ -80,32 +85,16 @@ $switch-sidebar-layout-1: lg;
 /* sidebar */
 
 .books-sidebar {
-  --books-sidebar-title-hheight: 2.5em;
-  background-color: var(--sidebar-bg);
 
-  @media screen and (min-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-    min-width: 20vw;
-    // width: 20em;
-    position: sticky;
-    top: 0;
-    overflow: auto;
-  }
-  @media screen and (max-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-    & {
-      width: 100%;
-      box-shadow: 0 0.5rem 1rem  var(--sidebar-shadow), inset 0 -1px 0 var(--sidebar-shadow);
-      position: sticky;
-      top: 0;
-    }
-  }
+  --books-sidebar-title-hheight: 2.5em;
+  
+  background-color: var(--sidebar-bg);
+  position: sticky;
+  top: 0;
 
   .books-sidebar-title-wrapper {
 
     height: var(--books-sidebar-title-hheight);
-
-    @media screen and (min-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-      border-bottom: 0.25px solid var(--sidebar-title-text-color);
-    }
 
     .books-sidebar-title {
       display: flex;
@@ -113,13 +102,7 @@ $switch-sidebar-layout-1: lg;
       text-decoration: none;
       color: var(--sidebar-title-text-color);
       &:hover {
-        // color: var(--sidebar-title-text-hover-color);
         text-shadow: 0.02em 0.02em ;
-        // text-decoration: underline;
-        // background-color: red;
-        .books-sidebar-title-icon {
-          // border: 1px solid;
-        }
       }
     }
 
@@ -129,10 +112,6 @@ $switch-sidebar-layout-1: lg;
     overflow-y: auto;
     max-height: calc(100vh - var(--books-sidebar-title-hheight));
     padding-top: 0.3em;
-    @media screen and (min-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-      min-height: calc(90vh - var(--books-sidebar-title-hheight));
-      display: block !important;
-    }
 
     .book-sidebar-topic-list {
       .btn-toggle {
@@ -142,11 +121,7 @@ $switch-sidebar-layout-1: lg;
         font-weight: 550;
         background-color: transparent;
         border: 0;
-        // &:hover,
-        // &:focus {
-        //   color: rgba(0, 0, 0, .85);
-        //   background-color: #d2f4ea;
-        // }
+        
         user-select:text;
         cursor: text;
 
@@ -207,11 +182,27 @@ $switch-sidebar-layout-1: lg;
         display: inline-block;
       }
     }
-    @media screen and (min-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-      & {
-        display: none;
-      }
-    }
   }
   
+  @media screen and (min-width: calc(#{map-get($grid-breakpoints, lg)} + 1px)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    // min-width: 20vw;
+    width: 20em;
+
+    overflow: auto;
+    .books-sidebar-title-wrapper {
+      border-bottom: 0.25px solid var(--sidebar-title-text-color);
+    }
+    .book-sidebar-topic-list-wrapper {
+      min-height: calc(90vh - var(--books-sidebar-title-hheight));
+      display: block !important;
+    }
+    .books-sidebar-toggler {
+      display: none;
+    }
+  }
+  @media screen and (max-width: map-get($grid-breakpoints, lg)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    width: 100%;
+    box-shadow: 0 0.5rem 1rem  var(--sidebar-shadow), inset 0 -1px 0 var(--sidebar-shadow);
+  }
+
 }

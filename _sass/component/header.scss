@@ -1,0 +1,124 @@
+/* header */
+
+header {
+
+  $navbar-brand-margin-end: 16px;
+
+  color: var(--topbar-text-color);
+  background-color: var(--topbar-wrapper-bg);
+  padding: 0.75rem 0;
+  font-size: 1em;
+
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+    margin-right:  $navbar-brand-margin-end;
+    .logo {
+      display: block;
+      width: 40px;
+    }
+  }
+
+  .navbar-toggler {
+    padding: 0;
+    margin: 0;
+    margin-left:  $navbar-brand-margin-end;
+
+  }
+
+  .search-box {
+    input {
+      color: var(--search-box-text-color);
+      background-color: var(--search-box-bg-color);
+      border-color: var(--search-box-border-color);
+      font-size: 0.80em;
+      padding: 0.25em .75em;
+      width: 15vw;
+      &::placeholder {
+        color: var(--search-box-placeholder-text-color);
+      }
+      &:focus {
+        width: 35vw;
+        background-color: var(--search-box-focus-bg-color);
+      }
+    }
+  }
+
+  .navbar-toggler, .nav-link, .social-logo {
+    // font-size: 1em;
+    &, &:focus {
+      color: var(--topbar-text-color);
+    }
+    // font-size: x-large;
+    &:hover {
+      color: var(--topbar-text-hover-color);
+    }
+  }
+
+  .offcanvas.offcanvas-end {
+    background-color: var(--topbar-wrapper-bg);
+  }
+
+  .nav-menu-list, .nav-social-list {
+    flex-wrap: wrap;
+  }
+
+  .navbar-min-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+  }
+
+  @media screen and (max-width: map-get($grid-breakpoints, md)) {
+    .search-box {
+      &, & input, & input:focus {
+        width: 100%;
+        // display: none;
+      }
+    }
+    .navbar-min-list {
+      width: 100%;
+    }
+    .nav-item {
+      display: flex;
+      width: 50%;
+    }
+  }
+
+  @media screen and (min-width: calc(#{map-get($grid-breakpoints, md)} + 1px)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    .navbar-toggler {
+      display: none;
+    }
+    .search-box input {
+      transition-property: width;
+      transition-duration: 0.2s;
+      transition-timing-function: ease;
+    }
+    .offcanvas.offcanvas-end {
+      position: inherit;
+      visibility: visible !important;
+      transform: none;
+      transition: none;
+      flex-grow: 1;
+
+      .offcanvas-header { 
+        display: none; 
+      }
+      .offcanvas-body {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+    }
+    .nav-menu-list, .nav-social-list {
+      flex-wrap: nowrap;
+      overflow-x: hidden;
+    }
+    .nav-hr, .nav-item-title {
+      display: none;
+    }
+  }
+
+}

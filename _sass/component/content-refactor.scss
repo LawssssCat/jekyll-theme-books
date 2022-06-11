@@ -1,0 +1,38 @@
+
+/* table */
+
+.table-wrapper {
+  overflow-x: auto;
+
+  > table {
+    min-width: 100%;
+    border-spacing: 0px;
+
+    // overflow-x: scroll;
+    thead {
+      border-bottom: solid 2px var(--tb-header-border-color);
+
+      th {
+        @extend %table-cell;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid var(--tb-border-color);
+
+        &:nth-child(2n) {
+          background-color: var(--tb-even-bg);
+        }
+
+        &:nth-child(2n + 1) {
+          background-color: var(--tb-odd-bg);
+        }
+
+        td {
+          @extend %table-cell;
+        }
+      }
+    } 
+  }
+}

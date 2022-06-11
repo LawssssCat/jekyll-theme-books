@@ -138,52 +138,48 @@ layout: page
 
   </div> <!-- left -->
 
-  <div class="page-main-content p-4 flex-fill flex-grow-1">
+  <div class="page-main-content p-4 d-flex flex-fill flex-grow-1">
     
-    <div class="row">
+    <!-- post -->
+    <div class="post-content-wrapper flex-grow-1" data-spy="scroll" data-target="#toc">
+      <div class="d-flex post-title-wrapper align-items-center justify-content-between">
+        <h1 class="post-title">{{ page.title }}</h1>
+        
+        {% assign site_src = site.data['site'].src[0] %}
+        {% assign site_src_platform = site_src['platform'] | default: 'GitHub' %}
+        {% assign site_src_url = site_src['url'] %}
+        {% assign site_src_branch = site_src['branch'] | default: 'main' %}
+        {%- if site_src_url -%}
+          <a class="btn-view-src btn btn-sm" 
+          href="{{ site_src_url }}/blob/{{ site_src_branch }}/{{ page.path }}" title="View and edit this file on {{ site_src_platform }}" 
+          target="_blank">View on {{ site_src_platform }}</a>
+        {%- endif -%}
+      </div>
+      {% if page.summary %}
+      <p class="post-description">
+        {{ page.summary }}
+      </p>
+      {% endif %}
+      <div class="post-content">
+        {% capture _content %}
+          {% include refactor-content.html content=content %}
+        {% endcapture %}
+        {{ _content }}
+      </div>
+    </div>
 
-      <!-- post -->
-      <div class="post-content-wrapper col-md-9" data-spy="scroll" data-target="#toc">
-        <div class="d-flex post-title-wrapper align-items-center justify-content-between">
-          <h1 class="post-title">{{ page.title }}</h1>
+    <!-- panel -->
+    <div class="panel-wrapper">
+      <!-- toc -->
+      {% if page.toc %}
+        <div class="toc-wrapper">
+          <div class="panel-heading">{{ site.data.locales[site.lang].panel.toc }}</div>
+          <nav id="toc" data-toggle="toc"></nav>
+        </div>
+        <script>
           
-          {% assign site_src = site.data['site'].src[0] %}
-          {% assign site_src_platform = site_src['platform'] | default: 'GitHub' %}
-          {% assign site_src_url = site_src['url'] %}
-          {% assign site_src_branch = site_src['branch'] | default: 'main' %}
-          {%- if site_src_url -%}
-            <a class="btn-view-src btn btn-sm" 
-            href="{{ site_src_url }}/blob/{{ site_src_branch }}/{{ page.path }}" title="View and edit this file on {{ site_src_platform }}" 
-            target="_blank">View on {{ site_src_platform }}</a>
-          {%- endif -%}
-        </div>
-        {% if page.summary %}
-        <p class="post-description">
-          {{ page.summary }}
-        </p>
-        {% endif %}
-        <div class="post-content">
-          {% capture _content %}
-            {% include refactor-content.html content=content %}
-          {% endcapture %}
-          {{ _content }}
-        </div>
-      </div>
-
-      <!-- panel -->
-      <div class="panel-wrapper col-md-3">
-        <!-- toc -->
-        {% if page.toc %}
-          <div class="toc-wrapper">
-            <div class="panel-heading">{{ site.data.locales[site.lang].panel.toc }}</div>
-            <nav id="toc" data-toggle="toc"></nav>
-          </div>
-          <script>
-            
-          </script>
-        {% endif %}
-      </div>
-
+        </script>
+      {% endif %}
     </div>
 
   </div> <!-- right -->

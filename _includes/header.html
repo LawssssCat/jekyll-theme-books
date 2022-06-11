@@ -28,20 +28,20 @@
       </div>
       <div class="offcanvas-body py-0">
 
-        <hr class="d-md-none text-white-50">
+        <hr class="nav-hr text-white-50">
         <!-- menu -->
         <ul class="nav-menu-list navbar-nav flex-row bd-navbar-nav">
 
           {% for nav in site.navs %}
           {% capture nav_name %}{{ nav.url | split: '/' }}{% endcapture %}
-          <li class="nav-item col-6 col-md-auto">
+          <li class="nav-item">
             <!--class="nav-link px-2 text-secondary"-->
             <a class="nav-link px-2" href="{{ nav.url | relative_url }}">{{ site.data.locales[site.lang].navs.[nav_name] | default: nav.title | upcase }}</a>
           </li>
           {% endfor %}
         </ul>
 
-        <hr class="d-md-none text-white-50">
+        <hr class="nav-hr text-white-50">
         <!-- icon -->
         <ul class="nav-social-list navbar-nav flex-row ms-md-auto">
           {% for entry in site.data.contact %}
@@ -61,11 +61,11 @@
             {% endcapture %}
         
             {% if url %}
-            <li class="nav-item col-6 col-md-auto">
+            <li class="nav-item">
               <a class="nav-link p-2" href="{{ url }}" aria-label="{{ entry.type }}" 
               {%- unless entry.noblank -%}target="_blank" rel="noopener"{%- endunless -%} >
               <span class="social-logo {{ entry.icon }} "></span>
-              <small class="d-md-none ms-2">{{entry.type}}</small>
+              <small class="nav-item-title ms-2">{{entry.type}}</small>
               </a>
             </li>
             {% endif %}
