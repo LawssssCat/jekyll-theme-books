@@ -1,7 +1,7 @@
 
 /* main-wrapper */
 
-.post-main-content-wrapper {
+.page-main-content-wrapper {
   @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
     flex-wrap: nowrap;
   }
@@ -9,14 +9,19 @@
     flex-wrap: wrap;
   }
 
-  .post-description {
-    font-size: calc(1.275rem + .3vw);
-    font-weight: 300;
-    @media screen and (min-width: map-get($grid-breakpoints, xl)) {
-      & {
-          font-size:1.5rem;
+  .page-main-content {
+    width: 100%; /* don't know why, if it is missing, the content will overflow. */
+    .post-main-content {
+      .post-description {
+        font-size: calc(1.275rem + .3vw);
+        font-weight: 300;
+        @media screen and (min-width: map-get($grid-breakpoints, xl)) {
+          & {
+              font-size:1.5rem;
+          }
+        }
       }
-  }
+    }
   
   }
 }
