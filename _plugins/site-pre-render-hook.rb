@@ -4,9 +4,7 @@
 
 Jekyll::Hooks.register(:site, :pre_render) do |site|
 
-  # insert lang
-  site.config['lang'] || site.config['lang'] = 'en'
-  $logger.debug("lang=#{site.config['lang']}")
+  SiteData.new.init(site)
 
   # insert posts last modify 
   site.posts.docs.each do | post |

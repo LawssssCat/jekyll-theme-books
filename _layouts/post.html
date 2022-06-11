@@ -105,11 +105,15 @@ layout: page
         <li class="book-sidebar-topic mb-1">
           <!-- <button class="btn btn-toggle align-items-center rounded collapsed {{ topic_show_active }}" data-bs-toggle="collapse" data-bs-target="#sl-{{ doc['category'] }}" aria-expanded="true" > -->
           <span class="btn btn-toggle align-items-center rounded collapsed {{ topic_show_active }}"  >
-            {% assign doc_icon_in_book = book_cur_info['doc_icon'] %}
-            {% assign doc_icon = doc['icon'] %}
-            {% if doc_icon == 'none' or doc_icon_in_book == 'none' %}
+            {% comment %}
+              data.books.doc.icon > data.book.doc_icon > site.books_icons(alis: icon_site_apply)
+            {% endcomment %}
+            {% assign doc_icon            = doc['icon'] %}
+            {% assign doc_icon_book_apply = book_cur_info['docs_icon'] %}
+            {% assign doc_icon_site_apply = doc['icon_site_apply'] %}
+            {% if doc_icon == 'none' or doc_icon_book_apply == 'none' %}
             {% else %}
-              {{ doc['icon'] }}
+              {{ doc_icon | default: doc_icon_book_apply | default: doc_icon_site_apply }}
             {% endif %}
             {{ doc['name'] | capitalize}}
           </span>

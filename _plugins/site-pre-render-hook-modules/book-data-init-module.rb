@@ -35,7 +35,7 @@ class BooksData
         doc['name'] = doc['category']
       end
       if doc['icon'] == nil
-        doc['icon'] = get_book_icon(site)
+        doc['icon_site_apply'] = get_book_icon(site)
       end
     end
 

@@ -33,9 +33,9 @@ description: >-                        # used by seo meta and the atom feed
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://LawssssCat.github.io/learn-index' #  Note: site.github.url will be used by default.
 
-image:                           # URL to an image associated with the post, page, or document (e.g., /assets/page-pic.jpg)
+image: assets/images/books.svg   # URL to an image associated with the post, page, or document (e.g., /assets/page-pic.jpg)
 
-logo:                            # URL to a site-wide logo (e.g., /assets/your-company-logo.png)
+logo: assets/images/b.svg        # URL to a site-wide logo (e.g., /assets/your-company-logo.png)
 
 github:
   username: LawssssCat             # change to your github username
