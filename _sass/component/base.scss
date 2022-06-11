@@ -67,9 +67,11 @@ header {
     }
   }
 
-  .navbar-toggler, .nav-link, .social-logo{
+  .navbar-toggler, .nav-link, .social-logo {
     // font-size: 1em;
+    &, &:focus {
     color: var(--topbar-text-color);
+    }
     // font-size: x-large;
     &:hover {
       color: var(--topbar-text-hover-color);
