@@ -1,5 +1,6 @@
 ---
-title: Custom config <br>(update with features)
+title: Custom config
+summary: Indicate which configuration can be customized. (update with features)
 pin: true
 order: 2
 ---
@@ -43,3 +44,4 @@ path | type of config | name | type of date | mean | default
 `books/{book_name}/{topic_name}/{publish_date}-{post_name}.md` | front matter | `pin`         | boolean | if `true` the post will be pined at top in post list. | `false`
 `books/{book_name}/{topic_name}/{publish_date}-{post_name}.md` | front matter | `pin_order`   | integer | sort pined posts according to the order from low to high. if order is nil the post will be queued last and display in the order of published data. | `999`
 `books/{book_name}/{topic_name}/{publish_date}-{post_name}.md` | front matter | `order`       | integer | sort posts according to the order from low to high. if order is nil the post will be queued last and display in the order of published data. | `nil`
+`books/{book_name}/{topic_name}/{publish_date}-{post_name}.md` | front matter | `summary`     | string | a post summary that will display below the title in post page. | `nil`

@@ -156,6 +156,11 @@ layout: page
             target="_blank">View on {{ site_src_platform }}</a>
           {%- endif -%}
         </div>
+        {% if page.summary %}
+        <p class="post-description">
+          {{ page.summary }}
+        </p>
+        {% endif %}
         <div class="post-content">
           {{content}}
         </div>

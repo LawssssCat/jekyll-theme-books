@@ -8,6 +8,17 @@
   @media screen and (max-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
     flex-wrap: wrap;
   }
+
+  .post-description {
+    font-size: calc(1.275rem + .3vw);
+    font-weight: 300;
+    @media screen and (min-width: map-get($grid-breakpoints, xl)) {
+      & {
+          font-size:1.5rem;
+      }
+  }
+  
+  }
 }
 
 /* offcanvas */
