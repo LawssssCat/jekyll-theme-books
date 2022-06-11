@@ -3,7 +3,7 @@ layout: default
 ---
 
 <ul>
-{% assign pinned = site.posts | where: "pin", "true" %}
+{% assign pinned = site.posts | where: "pin", "true" | sort: "pin_order" %}
 {% assign default = site.posts | where_exp: "item", "item.pin != true" %}
 
 {% assign pinned_num = pinned | size %}
