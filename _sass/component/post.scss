@@ -10,8 +10,8 @@
   }
 
   .page-main-content {
-    width: 100%; /* don't know why, if it is missing, the content will overflow. */
-    .post-main-content {
+    overflow: auto; /* don't know why, if it is missing, the content will overflow. */
+    .post-content-wrapper {
       .post-description {
         font-size: calc(1.275rem + .3vw);
         font-weight: 300;
