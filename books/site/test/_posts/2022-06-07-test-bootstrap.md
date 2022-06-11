@@ -9,6 +9,7 @@ boostrap docs about Reboot(a collection of element-specific CSS changes): <https
   .bd-example {
     border: 1px solid #000;
     margin-bottom: 1em;
+    padding: 3px;
   }
 </style>
 
