@@ -4,6 +4,7 @@ html {
 
 body {
   font-size: 16px;
+  color: var(--body-color);
 }
 
 
@@ -70,7 +71,7 @@ header {
   .navbar-toggler, .nav-link, .social-logo {
     // font-size: 1em;
     &, &:focus {
-    color: var(--topbar-text-color);
+      color: var(--topbar-text-color);
     }
     // font-size: x-large;
     &:hover {
@@ -137,6 +138,16 @@ footer  {
     
   }
 
+}
+
+.btn-view-src {
+  border-color: #dee2e6;
+  color: #6c757d;
+  &:hover, &:focus {
+    // box-shadow: none;
+    color: #000;
+    border-color: #000;
+  }
 }
 
 

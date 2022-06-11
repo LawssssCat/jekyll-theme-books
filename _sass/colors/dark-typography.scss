@@ -3,8 +3,7 @@
  */
 @mixin dark-scheme {
   /* Framework color */
-
-
+  --body-color: var(--bs-body-color);
   /* Common color */
 
   /* Sidebar */

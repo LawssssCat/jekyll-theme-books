@@ -1,0 +1,6 @@
+# define for 'view_on_xxxx'
+src:
+  - 
+    platform: GitHub
+    url: https://github.com/LawssssCat/jekyll-theme-books
+    branch: dev-layout
