@@ -1,17 +1,27 @@
+$switch-sidebar-layout-1: lg;
 
 /* main-wrapper */
 
 .page-main-content-wrapper {
-  @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-    flex-wrap: nowrap;
-  }
-  @media screen and (max-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+  flex-wrap: nowrap;
+  @media screen and (max-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
     flex-wrap: wrap;
   }
 
   .page-main-content {
-    overflow: auto; /* don't know why, if it is missing, the content will overflow. */
+    overflow: visible; 
+    width: 100%;/* visible for panel sticky. but don't know why, if it is missing, the content will overflow. */
     .post-content-wrapper {
+      overflow: auto;
+
+      @media screen and (min-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) {
+        & {
+          max-width: 80vw;
+        }
+      }
+      .post-title-wrapper {
+        flex-wrap: wrap;
+      }
       .post-description {
         font-size: calc(1.275rem + .3vw);
         font-weight: 300;
@@ -23,6 +33,13 @@
       }
     }
   
+    .panel-wrapper {
+      overflow: visible;
+      .toc-wrapper {
+        position: sticky;
+        top: 0;
+      }
+    }
   }
 }
 
@@ -63,18 +80,17 @@
 /* sidebar */
 
 .books-sidebar {
-
   --books-sidebar-title-hheight: 2.5em;
   background-color: var(--sidebar-bg);
 
-  @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-    min-width: 16em;
-    width: 16em;
+  @media screen and (min-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    min-width: 20vw;
+    // width: 20em;
     position: sticky;
     top: 0;
     overflow: auto;
   }
-  @media screen and (max-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+  @media screen and (max-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
     & {
       width: 100%;
       box-shadow: 0 0.5rem 1rem  var(--sidebar-shadow), inset 0 -1px 0 var(--sidebar-shadow);
@@ -87,7 +103,7 @@
 
     height: var(--books-sidebar-title-hheight);
 
-    @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    @media screen and (min-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
       border-bottom: 0.25px solid var(--sidebar-title-text-color);
     }
 
@@ -113,7 +129,7 @@
     overflow-y: auto;
     max-height: calc(100vh - var(--books-sidebar-title-hheight));
     padding-top: 0.3em;
-    @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    @media screen and (min-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
       min-height: calc(90vh - var(--books-sidebar-title-hheight));
       display: block !important;
     }
@@ -191,7 +207,7 @@
         display: inline-block;
       }
     }
-    @media screen and (min-width: map-get($grid-breakpoints, md)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+    @media screen and (min-width: map-get($grid-breakpoints, $switch-sidebar-layout-1)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
       & {
         display: none;
       }

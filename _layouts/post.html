@@ -142,7 +142,8 @@ layout: page
     
     <div class="row">
 
-      <div class="post-content-wrapper col-md-8">
+      <!-- post -->
+      <div class="post-content-wrapper col-md-9" data-spy="scroll" data-target="#toc">
         <div class="d-flex post-title-wrapper align-items-center justify-content-between">
           <h1 class="post-title">{{ page.title }}</h1>
           
@@ -162,11 +163,25 @@ layout: page
         </p>
         {% endif %}
         <div class="post-content">
-          {{content}}
+          {% capture _content %}
+            {% include refactor-content.html content=content %}
+          {% endcapture %}
+          {{ _content }}
         </div>
       </div>
-      <div class="panel-wrapper col-md-4">panel
 
+      <!-- panel -->
+      <div class="panel-wrapper col-md-3">
+        <!-- toc -->
+        {% if page.toc %}
+          <div class="toc-wrapper">
+            <div class="panel-heading">{{ site.data.locales[site.lang].panel.toc }}</div>
+            <nav id="toc" data-toggle="toc"></nav>
+          </div>
+          <script>
+            
+          </script>
+        {% endif %}
       </div>
 
     </div>

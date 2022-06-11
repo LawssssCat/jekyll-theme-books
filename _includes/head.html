@@ -29,6 +29,10 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css">
   
+  {% if page.toc %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+  {% endif %}
+
   <!-- css of this site -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 

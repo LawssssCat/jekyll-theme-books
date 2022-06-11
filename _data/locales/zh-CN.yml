@@ -29,3 +29,6 @@ not_found:
   hint_template: :HEAD_BAK尝试再次查找它，或在:ARCHIVES_PAGE上搜索它。
   head_back: 返回主页
   archives_page: 归档页面
+
+panel:
+  toc: 文章内容
