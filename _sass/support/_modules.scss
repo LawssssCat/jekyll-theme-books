@@ -34,19 +34,31 @@
 }
 
 @mixin tag-style {
+  $_c: var(--tag-text-color);
+
   padding-left: 1.5rem;
   border-radius: 1.5rem 0em 0em 1.5rem;
-  border: 1px solid #000;
+  border: 1px solid $_c;
+  color: $_c;
   &::before {
     content: ' ';
     position: absolute;
     left: 0.5em;
     transform: translateY(-50%);
     top: 50%;
-    background-color: #000;
+    background-color: $_c;
     // border: 10px solid #000;
     height: 0.75rem;
     width: 0.75rem;
     border-radius: 0.75rem;
+  }
+  &:hover {
+    $_c: var(--tag-text-hover-color);
+    color: $_c;
+    border-color: $_c;
+    &::before {
+      background-color: $_c;
+
+    }
   }
 }
