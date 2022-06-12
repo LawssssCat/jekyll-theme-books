@@ -142,29 +142,50 @@ layout: page
     
     <!-- post -->
     <div class="post-content-wrapper flex-grow-1">
-      <div class="d-flex post-title-wrapper align-items-center justify-content-between">
+      <!-- post title -->
+      <div class="post-title-wrapper">
         <h1 class="post-title">{{ page.title }}</h1>
         
-        {% assign site_src = site.data['site'].src[0] %}
-        {% assign site_src_platform = site_src['platform'] | default: 'GitHub' %}
-        {% assign site_src_url = site_src['url'] %}
-        {% assign site_src_branch = site_src['branch'] | default: 'main' %}
-        {%- if site_src_url -%}
-          <a class="btn-view-src btn btn-sm" 
-          href="{{ site_src_url }}/blob/{{ site_src_branch }}/{{ page.path }}" title="View and edit this file on {{ site_src_platform }}" 
-          target="_blank">View on {{ site_src_platform }}</a>
-        {%- endif -%}
+        {%- include modules/btn_edit_src.html path=page.path -%}
       </div>
+      <!-- post tags -->
+      <div class="post-tags">
+        <ul class="post-tag-list">
+          {% for tag in page.tags %}
+          <li class="post-tag-item">
+            <a class="post-tag-item-link" href="/archives.html?tag={{ tag }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <!-- post summary -->
       {% if page.summary %}
       <p class="post-description">
         {{ page.summary }}
       </p>
       {% endif %}
+      
+      <!-- post content -->
       <div class="post-content">
         {% capture _content %}
           {% include refactor-content.html content=content %}
         {% endcapture %}
         {{ _content }}
+      </div>
+      <!-- post info -->
+      <div class="post-info">
+        <div class="row">
+          <ul class="post-info-list">
+            <li class="post-info-item">
+              Publish at: <span>{{ page.date | date: '%Y-%m-%d %H:%M:%S' }}</span><br>
+              Modify at: <span>{{ page['last_modified_at'] | date: '%Y-%m-%d %H:%M:%S' }}</span> {%- include modules/btn_edit_src.html path=page.path -%}
+            </li>
+            <li class="post-info-item">
+              {% assign post_author_info = site.data.authors[page.author] %}
+              Publish by: <a href="{{ post_author_info['url'] }}">{{ post_author_info['name'] }}</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 

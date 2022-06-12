@@ -1,6 +1,7 @@
 ---
 title: Test Bootstrap and Reboot
 summary: Reboot, a collection of element-specific CSS changes in a single file, kickstart Bootstrap to provide an elegant, consistent, and simple baseline to build upon.
+tags: ['bootstrap', 'reboot', 'test']
 ---
 
 boostrap docs about Reboot(a collection of element-specific CSS changes): <https://getbootstrap.com/docs/5.1/content/reboot/#headings-and-paragraphs>

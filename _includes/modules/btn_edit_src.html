@@ -1,0 +1,12 @@
+{% assign site_src = site.data['site'].src[0] %}
+{% assign site_src_platform = site_src['platform'] | default: 'GitHub' %}
+{% assign site_src_url = site_src['url'] %}
+{% assign site_src_branch = site_src['branch'] | default: 'main' %}
+{%- if site_src_url -%}
+  <span class="split-space">&nbsp;</span>
+  <a class="btn-view-src" 
+  href="{{ site_src_url }}/blob/{{ site_src_branch }}/{{ include.path }}" title="Edit on {{ site_src_platform }}" 
+  target="_blank">
+    <i class="far fa-edit"></i>
+  </a>
+{%- endif -%}

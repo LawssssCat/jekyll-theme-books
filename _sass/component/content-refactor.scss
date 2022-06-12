@@ -13,7 +13,7 @@
       border-bottom: solid 2px var(--tb-header-border-color);
 
       th {
-        @extend %table-cell;
+        @include table-cell;
       }
     }
 
@@ -30,7 +30,7 @@
         }
 
         td {
-          @extend %table-cell;
+          @include table-cell;
         }
       }
     } 

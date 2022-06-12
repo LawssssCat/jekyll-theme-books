@@ -34,9 +34,11 @@ footer  {
 /* --- Typography --- */
 
 h1, h2, h3, h4, h5 {
-  @extend %heading;
+  @include heading;
   // @extend %section;
-  @extend %anchor;
+  @include anchor;
+
+  font-weight: 700;
   // &:target {
   //   border-left: 0.2em solid #000;
   //   padding-left: 0.2em;
