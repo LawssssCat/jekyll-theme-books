@@ -1,5 +1,3 @@
-$switch-sidebar-layout-1: lg;
-
 /* main-wrapper */
 
 %post-content-wrapper {
@@ -56,8 +54,6 @@ $switch-sidebar-layout-1: lg;
             padding: 0 3px;
           }
         }
-
-
       }
 
     }
@@ -139,7 +135,7 @@ $switch-sidebar-layout-1: lg;
   }
 
   @media screen and (max-width: map-get($grid-breakpoints, lg)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
-    &, .page-main-content {
+    & {
       flex-wrap: wrap;
     }
   }
@@ -190,9 +186,9 @@ $switch-sidebar-layout-1: lg;
 
 /* sidebar */
 
-.books-sidebar {
+$books-sidebar-title-hheight: 2.5em;
 
-  --books-sidebar-title-hheight: 2.5em;
+.books-sidebar {
   
   background-color: var(--sidebar-bg);
   position: sticky;
@@ -201,7 +197,7 @@ $switch-sidebar-layout-1: lg;
 
   .books-sidebar-title-wrapper {
 
-    height: var(--books-sidebar-title-hheight);
+    height: $books-sidebar-title-hheight;
 
     .books-sidebar-title {
       display: flex;
@@ -217,7 +213,7 @@ $switch-sidebar-layout-1: lg;
 
   .book-sidebar-topic-list-wrapper {
     overflow-y: auto;
-    max-height: calc(100vh - var(--books-sidebar-title-hheight));
+    max-height: calc(100vh - #{$books-sidebar-title-hheight});
     padding-top: 0.3em;
 
     .book-sidebar-topic-list {
@@ -309,7 +305,68 @@ $switch-sidebar-layout-1: lg;
   }
   @media screen and (max-width: map-get($grid-breakpoints, lg)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
     width: 100%;
-    box-shadow: 0 0.5rem 1rem  var(--sidebar-shadow), inset 0 -1px 0 var(--sidebar-shadow);
+    @include box-shadow();
   }
 
+}
+
+$post-toc-ab: 3rem;
+$post-toc-ah: 2.3rem;
+
+.post-toc-action-wrapper {
+
+  display: none;
+
+  position: fixed;
+  bottom: $post-toc-ab;
+  right: 2rem;
+  z-index: 11;
+  
+  .post-toc-action {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    border-radius: 50%;
+
+    color: #000;
+    background-color: rgba(242, 242, 242, 0.75);
+    cursor: pointer;
+
+    width: 2.3rem;
+    height: $post-toc-ah;
+    font-size: 1.25rem;
+    padding: 0.525rem 0.7666666667rem;
+
+    transition: all 0.2s ease-in-out;
+
+    @include box-shadow(2);
+  
+    &:hover {
+      background-color: rgba(206, 206, 206, 0.75);
+    }
+
+  }
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, lg)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+  .post-toc-action-wrapper {
+    display: block;
+  }
+
+  .page-main-content-wrapper .page-main-content .panel-wrapper .toc-wrapper {
+    $toc_h: 60vh;
+    $toc_w: 10em;
+    position: fixed;
+    right: -$toc_w;
+    top: calc(100vh - #{$toc_h} - #{$post-toc-ab} - #{$post-toc-ah});
+    background: white;
+    padding-left: 0;
+    margin: 0;
+    max-height: $toc_h;
+    min-width: $toc_w;
+    transition: all 0.15s ease-in;
+    &.active {
+      transform: translate(-$toc_w, 0);
+    }
+  }
 }

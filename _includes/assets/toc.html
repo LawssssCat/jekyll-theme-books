@@ -21,6 +21,22 @@
         <div class="panel-heading">{{ site.data.locales[site.lang].panel.toc }}</div>
         <nav class="post-content-toc" data-toggle="post-toc"></nav>
       </div>
+      <div class="post-toc-action-wrapper" onclick="toggle_active('.toc-wrapper')">
+        <div class="post-toc-action">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+      <script>
+        function toggle_active(selector) {
+          var els = document.querySelectorAll(selector);
+          els.forEach(el => {
+            if(el.classList.contains('active'))
+              el.classList.remove('active');
+            else 
+              el.classList.add('active');
+          })
+        }
+      </script>
     {% when "js" %}
       <!-- bootstrap-toc -->
       <!-- see https://github.com/afeld/bootstrap-toc -->
