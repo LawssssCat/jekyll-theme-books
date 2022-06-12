@@ -17,12 +17,12 @@ boostrap docs about Reboot(a collection of element-specific CSS changes): <https
 
 Heading | Example
 ---     | ---
-`<h1></h1>` or `<span class='h1'></span>` | <span class='h1'>h1. Bootstrap heading</span>
-`<h2></h2>` or `<span class='h2'></span>` | <span class='h2'>h2. Bootstrap heading</span>
-`<h3></h3>` or `<span class='h3'></span>` | <span class='h3'>h3. Bootstrap heading</span>
-`<h4></h4>` or `<span class='h4'></span>` | <span class='h4'>h4. Bootstrap heading</span>
-`<h5></h5>` or `<span class='h5'></span>` | <span class='h5'>h5. Bootstrap heading</span>
-`<h6></h6>` or `<span class='h6'></span>` | <span class='h6'>h6. Bootstrap heading</span>
+`<h1></h1>` or `<span class='h1'></span>` | <span class='h1' data-toc-skip >h1. Bootstrap heading</span>
+`<h2></h2>` or `<span class='h2'></span>` | <span class='h2' data-toc-skip >h2. Bootstrap heading</span>
+`<h3></h3>` or `<span class='h3'></span>` | <span class='h3' data-toc-skip >h3. Bootstrap heading</span>
+`<h4></h4>` or `<span class='h4'></span>` | <span class='h4' data-toc-skip >h4. Bootstrap heading</span>
+`<h5></h5>` or `<span class='h5'></span>` | <span class='h5' data-toc-skip >h5. Bootstrap heading</span>
+`<h6></h6>` or `<span class='h6'></span>` | <span class='h6' data-toc-skip >h6. Bootstrap heading</span>
 `<p></p>` or `<span class='p'></span>` | <span class='p'>p. Bootstrap paragraphs</span>
 
 ## Lists

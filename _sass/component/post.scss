@@ -2,29 +2,79 @@ $switch-sidebar-layout-1: lg;
 
 /* main-wrapper */
 
+%post-content-wrapper {
+
+  overflow: auto;
+  .post-title-wrapper {
+    flex-wrap: wrap;
+  }
+  .post-description {
+    font-size: calc(1.275rem + .3vw);
+    font-weight: 300;
+  }
+  .post-content {
+    overflow-wrap: break-word;
+  }
+
+  @media screen and (min-width: calc(#{map-get($grid-breakpoints, xl)} - 1px)) {
+    .post-description {
+        font-size:1.5rem;
+    }
+  }
+}
+
+%panel-wrapper {
+
+  overflow: visible;
+
+  @mixin panel-item {
+    $p-em: 1em;
+    margin-left: $p-em;
+    margin-right: $p-em;
+    width: 15vw;
+    border-left: 1px solid var(--border-color);
+  }
+
+  .toc-wrapper {
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    max-height: 100vh;
+    @include panel-item;
+    .panel-heading {
+      font-weight: 600;
+      padding: 0.5rem;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid var(--toc-title-border-color);
+      margin: 0.5rem;
+      padding: 0.3rem;
+      background-color: var(--body-bg-color);
+    }
+    nav[data-toggle=toc] .nav-link.active {
+      
+      &, &:focus, &:hover {
+        color: var(--toc-active-color);
+        border-left: 2px solid var(--toc-active-color);
+      }
+    } 
+    
+  }
+}
+
 .page-main-content-wrapper {
   flex-wrap: nowrap;
 
   .page-main-content {
     overflow: visible; 
     width: 100%;/* visible for panel sticky. but don't know why, if it is missing, the content will overflow. */
+    
     .post-content-wrapper {
-      overflow: auto;
-      .post-title-wrapper {
-        flex-wrap: wrap;
-      }
-      .post-description {
-        font-size: calc(1.275rem + .3vw);
-        font-weight: 300;
-      }
+      @extend %post-content-wrapper;
     }
   
     .panel-wrapper {
-      overflow: visible;
-      .toc-wrapper {
-        position: sticky;
-        top: 0;
-      }
+      @extend %panel-wrapper;
     }
   }
 
@@ -40,11 +90,7 @@ $switch-sidebar-layout-1: lg;
     }
   }
 
-  @media screen and (min-width: calc(#{map-get($grid-breakpoints, xl)} - 1px)) {
-    .page-main-content .post-content-wrapper .post-description {
-        font-size:1.5rem;
-    }
-  }
+
 
 }
 
@@ -91,6 +137,7 @@ $switch-sidebar-layout-1: lg;
   background-color: var(--sidebar-bg);
   position: sticky;
   top: 0;
+  z-index: 99;
 
   .books-sidebar-title-wrapper {
 

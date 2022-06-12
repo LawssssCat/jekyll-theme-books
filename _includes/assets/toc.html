@@ -1,0 +1,43 @@
+{% comment %}
+
+  Determine whether assets are needs.
+
+  needs:
+    - type: string. value=js/dom
+
+{% endcomment %}
+
+{% assign asset_toc_need = false %}
+{% if page.toc %}
+  {% if page.content contains '<h2' or page.content contains '<h3' %}
+    {% assign asset_toc_need = true %}
+  {% endif %}
+{% endif %}
+
+{% if asset_toc_need %}
+  {% case include.type %}
+    {% when "dom" %}
+      <div class="toc-wrapper">
+        <div class="panel-heading">{{ site.data.locales[site.lang].panel.toc }}</div>
+        <nav class="post-content-toc" data-toggle="post-toc"></nav>
+      </div>
+    {% when "js" %}
+      <!-- bootstrap-toc -->
+      <!-- see https://github.com/afeld/bootstrap-toc -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css">
+      <script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script>
+      <script>
+        $(function () {
+          var navSelector = ".post-content-toc";
+          var scopeSelector = ".post-content";
+          Toc.init({
+            $nav: $(navSelector),
+            $scope: $(scopeSelector),
+          });
+          $('body').scrollspy({
+            target: '#post-toc',
+          });
+        });
+      </script>
+  {% endcase %}
+{% endif %}

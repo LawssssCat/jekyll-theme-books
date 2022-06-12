@@ -4,6 +4,8 @@
 @mixin dark-scheme {
   /* Framework color */
   --body-color: var(--bs-body-color);
+  --body-bg-color: #fff;
+  --border-color: #f3f3f3;
   /* Common color */
 
   /* Sidebar */
@@ -33,6 +35,8 @@
   --tb-border-color: #eaeaea; 
   --tb-header-border-color: rgba(210, 215, 217, 0.75); 
 
+  --toc-active-color: #030303;
+  --toc-title-border-color: var(--border-color);
   /* Categories */
 
   /* Archive */
