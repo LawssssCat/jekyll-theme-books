@@ -1,6 +1,21 @@
 ---
+# Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@import "specification";
+@import 
+  "support/_variables", 
+  "support/_modules", 
 
-/* append your custom style below */
+  "colors/light-typography",
+  "colors/light-syntax",
+  "colors/dark-typography",
+  "colors/dark-syntax",
+
+  "component/base",
+  "component/header",
+  "component/content-refactor", 
+  "component/post",
+  "component/books",
+
+  // for user custom
+  "custom";
