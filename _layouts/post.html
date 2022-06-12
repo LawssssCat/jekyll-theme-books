@@ -153,7 +153,7 @@ layout: page
         <ul class="post-tag-list">
           {% for tag in page.tags %}
           <li class="post-tag-item">
-            <a class="post-tag-item-link" href="/archives.html?tag={{ tag }}">{{ tag }}</a>
+            <a class="post-tag-item-link" href="{{ '/archives/?tag=' | append: tag | relative_url }}">{{ tag }}</a>
           </li>
           {% endfor %}
         </ul>
