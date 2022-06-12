@@ -3,3 +3,32 @@
   font-size: 95%;
   white-space: nowrap;
 }
+
+%heading {
+  color: var(--heading-color);
+  font-weight: 400;
+  font-family: 'Lato', 'Microsoft Yahei', sans-serif;
+}
+
+%anchor {
+  .anchor {
+    padding-left: 0.2rem;
+    font-size: 80%;
+  }
+
+  @media (hover: hover) {
+    .anchor {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.15s ease-in, visibility 0s ease-in 0.25s;
+    }
+
+    &:hover {
+      .anchor {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.15s ease-in, visibility 0s ease-in 0s;
+      }
+    }
+  }
+}
