@@ -45,3 +45,5 @@ path | type of config | name | type of date | mean | default
 `books/{book_name}/{topic_name}/{publish_date}-{post_name}.md` | front matter | `pin_order`   | integer | sort pined posts according to the order from low to high. if order is nil the post will be queued last and display in the order of published data. | `999`
 `books/{book_name}/{topic_name}/{publish_date}-{post_name}.md` | front matter | `order`       | integer | sort posts according to the order from low to high. if order is nil the post will be queued last and display in the order of published data. | `nil`
 `books/{book_name}/{topic_name}/{publish_date}-{post_name}.md` | front matter | `summary`     | string | a post summary that will display below the title in post page. | `nil`
+`books/{book_name}/{topic_name}/{publish_date}-{post_name}.md` | front matter | `author`      | string | indicate the author of this post. it will reference the file `_data/authros.yml` by name. | `site.default.{post scope}.author`
+`books/{book_name}/{topic_name}/{publish_date}-{post_name}.md` | front matter | `tags`        | array | define a tag list that will help us to find this post in some where. | `nil`
