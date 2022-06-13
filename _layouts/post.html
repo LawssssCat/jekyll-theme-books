@@ -149,6 +149,8 @@ layout: page
         {%- include modules/btn_edit_src.html path=page.path -%}
       </div>
       <!-- post tags -->
+      {% assign _tag_num = page.tags | size %}
+      {% if _tag_num>0 %}
       <div class="post-tags">
         <ul class="post-tag-list">
           {% for tag in page.tags %}
@@ -158,6 +160,7 @@ layout: page
           {% endfor %}
         </ul>
       </div>
+      {% endif %}
       <!-- post summary -->
       {% if page.summary %}
       <p class="post-description">

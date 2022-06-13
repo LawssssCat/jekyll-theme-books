@@ -1,0 +1,69 @@
+@mixin block-elements {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  hr,
+  blockquote,
+  figure,
+  pre,
+  .highlighter-rouge,
+  ul,
+  ol,
+  dl,
+  table,
+  .footnotes {
+    @content;
+  }
+}
+@mixin heading-elements {
+  h1, h2, h3, h4, h5, h6 {
+    @content;
+  }
+}
+
+/**
+ * 1. Prevent adjustments of font size after orientation changes in iOS.
+ **/
+
+html {
+  font-size: map-get($base, font-size-root);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font: map-get($base, font-weight) #{map-get($base, font-size)}/#{map-get($base, line-height)} map-get($base, font-family);
+}
+
+@include block-elements() {
+  padding: 0;
+  margin: map-get($spacers, 2) 0;
+}
+
+input, textarea, select, button {
+  font: map-get($base, font-weight) #{map-get($base, font-size)}/#{map-get($base, line-height)} map-get($base, font-family);
+  color: var(--body-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-weight: map-get($base, font-weight-bold);
+}
+
+
+h1 {
+  font-size: map-get($base, font-size-h1);
+  color: var(--body-color);
+  @include media-breakpoint-down(md) {
+    font-size: map-get($base, font-size-h1-sm);
+  }
+}

@@ -1,10 +1,91 @@
+$base: (
+  font-family:            (-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif),
+  font-family-code:       (Menlo, Monaco, Consolas, Andale Mono, lucida console, Courier New, monospace),
+
+  font-size-root:         16px,
+  font-size-root-sm:      14px,
+
+  font-size-xl:           1.5rem,
+  font-size-lg:           1.25rem,
+  font-size:              1rem,
+  font-size-sm:           .85rem,
+  font-size-xs:           .7rem,
+
+  font-size-h1-xl:        3.5rem,
+  font-size-h2-xl:        2.5rem,
+  font-size-h3-xl:        2rem,
+  font-size-h4-xl:        1.75rem,
+  font-size-h5-xl:        1.5rem,
+  font-size-h6-xl:        1.5rem,
+
+  font-size-h1-lg:        3rem,
+  font-size-h2-lg:        2rem,
+  font-size-h3-lg:        1.75rem,
+  font-size-h4-lg:        1.5rem,
+  font-size-h5-lg:        1.25rem,
+  font-size-h6-lg:        1.25rem,
+
+  font-size-h1:           2.5rem,
+  font-size-h2:           1.9rem,
+  font-size-h3:           1.5rem,
+  font-size-h4:           1.2rem,
+  font-size-h5:           1rem,
+  font-size-h6:           1rem,
+
+  font-size-h1-sm:        2rem,
+  font-size-h2-sm:        1.5rem,
+  font-size-h3-sm:        1.35rem,
+  font-size-h4-sm:        1.15rem,
+  font-size-h5-sm:        1rem,
+  font-size-h6-sm:        1rem,
+
+  font-size-h1-xs:        1.05rem,
+  font-size-h2-xs:        1rem,
+  font-size-h3-xs:        .95rem,
+  font-size-h4-xs:        .9rem,
+  font-size-h5-xs:        .85rem,
+  font-size-h6-xs:        .85rem,
+
+  font-weight:            400,
+  font-weight-bold:       700,
+
+  line-height-xl:         2,
+  line-height-lg:         1.8,
+  line-height:            1.6,
+  line-height-sm:         1.4,
+  line-height-xs:         1.2,
+
+  spacer:                 1rem,
+
+  border-radius-lg:       .8rem,
+  border-radius:          .4rem,
+  border-radius-sm:       .2rem
+);
+
+$spacers: (
+  0:                      0,
+  1:                      map-get($base, spacer) * .25,
+  2:                      map-get($base, spacer) * .5,
+  3:                      map-get($base, spacer),
+  4:                      map-get($base, spacer) * 1.5,
+  5:                      map-get($base, spacer) * 3
+);
+
+//     sm       md       lg
+// | ------ | ------ | ------ |
+// 0       500      1024      -
+
 $grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
+  sm:                      0,
+  md:                      500px,
+  lg:                      1024px
+  // bootstrap 
+  // xs: 0,
+  // sm: 576px,
+  // md: 768px,
+  // lg: 992px,
+  // xl: 1200px,
+  // xxl: 1400px
 );
 
 /*

@@ -3,14 +3,16 @@
 ---
 
 @import 
-  "support/_variables", 
-  "support/_modules", 
-  "support/classes/_shadow", 
-
   "colors/light-typography",
   "colors/light-syntax",
   "colors/dark-typography",
   "colors/dark-syntax",
+
+  "support/_variables", 
+  "support/classes/_shadow", 
+  "support/classes/_media", 
+  "support/_reset", 
+  "support/_modules", 
 
   "component/base",
   "component/header",

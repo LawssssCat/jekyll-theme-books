@@ -43,12 +43,12 @@ guide:
     - icon: 🚀
       name: 
       category: start
-    - icon: 🏷
+    - icon: 🎨
       name: 自定义
       category: custom
 
 test:
-  icon: 
+  icon: 🧪
   name:
   description:
   image:

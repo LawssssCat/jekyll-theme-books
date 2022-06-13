@@ -1,15 +1,19 @@
 /* header */
 
-header {
+.navbar {
 
   $navbar-brand-margin-end: 16px;
 
-  color: var(--topbar-text-color);
   background-color: var(--topbar-wrapper-bg);
   padding: 0.75rem 0;
-  font-size: 1em;
 
   z-index: 100;
+
+  .navbar-content {
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 100%;
+  }
 
   .navbar-brand {
     padding: 0;
@@ -74,7 +78,7 @@ header {
     flex-direction: row;
   }
 
-  @media screen and (max-width: map-get($grid-breakpoints, md)) {
+  @media screen and (max-width: map-get($grid-breakpoints, lg)) {
     .search-box {
       &, & input, & input:focus {
         width: 100%;
@@ -90,7 +94,7 @@ header {
     }
   }
 
-  @media screen and (min-width: calc(#{map-get($grid-breakpoints, md)} + 1px)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+  @media screen and (min-width: calc(#{map-get($grid-breakpoints, lg)} + 1px)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
     .navbar-toggler {
       display: none;
     }
@@ -118,6 +122,7 @@ header {
     .nav-menu-list, .nav-social-list {
       flex-wrap: nowrap;
       overflow-x: hidden;
+      margin: 0;
     }
     .nav-hr, .nav-item-title {
       display: none;
