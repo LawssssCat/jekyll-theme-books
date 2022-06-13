@@ -14,11 +14,17 @@
   "support/_reset", 
   "support/_modules", 
 
-  "component/base",
-  "component/header",
-  "component/content-refactor", 
-  "component/post",
-  "component/books",
+  "component/_base",
+  "component/_page_header",
+  "component/_post_content-refactor", 
+  "component/_post_content",
+  "component/_post_info",
+  "component/_post_panel",
+  "component/_post_sidebar",
+  "component/_post_title",
+  
+  "layout/books",
+  "layout/post",
 
   // for user custom
   "custom";

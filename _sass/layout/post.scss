@@ -1,0 +1,25 @@
+/* main-wrapper */
+
+
+.page-main-content-wrapper {
+  flex-wrap: nowrap;
+
+  .page-main-content {
+    overflow: visible; 
+    width: 100%;/* visible for panel sticky. but don't know why, if it is missing, the content will overflow. */
+    
+  }
+
+  @include media-breakpoint-down(lg) {
+    & {
+      flex-wrap: wrap;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .page-main-content {
+      max-width: 80vw;
+    }
+  }
+
+}
