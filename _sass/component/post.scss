@@ -80,7 +80,7 @@
       }
     }
   
-    @media screen and (min-width: calc(#{map-get($grid-breakpoints, xl)} - 1px)) {
+    @include media-breakpoint-up(xl) {
       .post-description {
           font-size:1.5rem;
       }
@@ -141,13 +141,13 @@
 
   }
 
-  @media screen and (max-width: map-get($grid-breakpoints, lg)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+  @include media-breakpoint-down(lg) {
     & {
       flex-wrap: wrap;
     }
   }
 
-  @media screen and (min-width: calc(#{map-get($grid-breakpoints, lg)} - 1px)) {
+  @include media-breakpoint-up(lg) {
     .page-main-content {
       max-width: 80vw;
     }
@@ -294,7 +294,7 @@ $books-sidebar-title-hheight: 2.5em;
     }
   }
   
-  @media screen and (min-width: calc(#{map-get($grid-breakpoints, lg)} + 1px)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+  @include media-breakpoint-up(lg) {
     // min-width: 20vw;
     width: 20em;
 
@@ -310,7 +310,7 @@ $books-sidebar-title-hheight: 2.5em;
       display: none;
     }
   }
-  @media screen and (max-width: map-get($grid-breakpoints, lg)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+  @include media-breakpoint-down(lg) {
     width: 100%;
     @include box-shadow();
   }
@@ -355,7 +355,7 @@ $post-toc-ah: 2.3rem;
   }
 }
 
-@media screen and (max-width: map-get($grid-breakpoints, lg)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+@include media-breakpoint-down(lg) {
   .post-toc-action-wrapper {
     display: block;
   }

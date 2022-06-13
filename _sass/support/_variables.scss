@@ -78,8 +78,10 @@ $spacers: (
 $grid-breakpoints: (
   sm:                      0,
   md:                      500px,
-  lg:                      1024px
-  // bootstrap 
+  lg:                      1024px,
+  xl:                      1200px,
+
+  /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
   // xs: 0,
   // sm: 576px,
   // md: 768px,

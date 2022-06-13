@@ -67,3 +67,43 @@ h1 {
     font-size: map-get($base, font-size-h1-sm);
   }
 }
+
+h2 {
+  font-size: map-get($base, font-size-h2);
+  color: var(--body-color);
+  @include media-breakpoint-down(md) {
+    font-size: map-get($base, font-size-h2-sm);
+  }
+}
+
+h3 {
+  font-size: map-get($base, font-size-h3);
+  color: var(--body-color);
+  @include media-breakpoint-down(md) {
+    font-size: map-get($base, font-size-h3-sm);
+  }
+}
+
+h4 {
+  font-size: map-get($base, font-size-h4);
+  color: var(--body-color);
+  @include media-breakpoint-down(md) {
+    font-size: map-get($base, font-size-h4-sm);
+  }
+}
+
+h5 {
+  font-size: map-get($base, font-size-h5);
+  color: var(--body-color);
+  @include media-breakpoint-down(md) {
+    font-size: map-get($base, font-size-h5-sm);
+  }
+}
+
+h6 {
+  font-size: map-get($base, font-size-h6);
+  color: var(--body-color);
+  @include media-breakpoint-down(md) {
+    font-size: map-get($base, font-size-h6-sm);
+  }
+}

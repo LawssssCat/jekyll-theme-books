@@ -78,7 +78,7 @@
     flex-direction: row;
   }
 
-  @media screen and (max-width: map-get($grid-breakpoints, lg)) {
+  @include media-breakpoint-down(lg) {
     .search-box {
       &, & input, & input:focus {
         width: 100%;
@@ -94,7 +94,7 @@
     }
   }
 
-  @media screen and (min-width: calc(#{map-get($grid-breakpoints, lg)} + 1px)) { /* bootstrap breakpoints see https://v5.bootcss.com/docs/layout/breakpoints/#available-breakpoints */
+  @include media-breakpoint-up(lg) { 
     .navbar-toggler {
       display: none;
     }

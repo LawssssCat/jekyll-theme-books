@@ -19,7 +19,7 @@ This post is to show Markdown syntax rendering on [**Chirpy**](https://github.co
 
 
 ## Titles
----
+
 # H1 - heading
 
 <h2 data-toc-skip>H2 - heading</h2>
@@ -27,8 +27,6 @@ This post is to show Markdown syntax rendering on [**Chirpy**](https://github.co
 <h3 data-toc-skip>H3 - heading</h3>
 
 <h4>H4 - heading</h4>
----
-<br>
 
 ## Paragraph
 
