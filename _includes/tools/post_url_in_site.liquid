@@ -1,0 +1,6 @@
+{% comment %}
+needs 
+ - post_id: define in post front matter
+{% endcomment %}
+{%- assign _post = site.posts | where: 'post_id', include.post_id | first -%}
+{{ _post.url | relative_url }}

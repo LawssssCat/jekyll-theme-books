@@ -1,3 +1,6 @@
+---
+post_id: 'HOW_TO_ADD_A_BOOK'
+---
 
 The file `_books/{book_name}` is about book info. e.g. "name", "image", **"docs"**, ...<br>
 The "docs" attribute define the order of posts's topic.<br>

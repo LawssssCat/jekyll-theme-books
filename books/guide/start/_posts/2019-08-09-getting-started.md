@@ -79,7 +79,7 @@ Before running for the first time, go to the root directory of your site, and in
 $ bundle install 
 ```
 
-> Bas network? try this [post]({{ '/books/ruby/install/更换国内源/' | relative_url }}). 
+> Bas network? try this [post]({% include tools/post_url_in_site.liquid post_id='bundle更换国内源' %}). 
 
 ## Usage
 

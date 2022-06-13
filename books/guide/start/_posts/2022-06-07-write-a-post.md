@@ -1,8 +1,20 @@
 ---
-title: How to write Markdown in site
+title: How to write a New Post in books theme
 tags: ["markdown 📓", 'rules for this project 🏘️']
+summary: This post will guide you how to write a post on books theme. Even if you have previous experience with Jekyll, this article is worth reading, because many features require specific variables to be set.
 order: 10
 ---
+
+## Naming and Path
+
+Create a new file named `{YYYY-MM-DD}-{TITLE}.{EXTENSION}`{: .filepath} and put it in the `books/{BOOK_ID}/{topic_id}/_posts`{: .filepath} of the root directory. 
+
+Please note:
+
++ the `{EXTENSION}`{: .filepath} must be one of `md`{: .filepath} and `markdown`{: .filepath}. 
+
+>related documents:
+>- [How to add a book]({% include tools/post_url_in_site.liquid post_id='HOW_TO_ADD_A_BOOK' %})
 
 ## How to write markdown
 
