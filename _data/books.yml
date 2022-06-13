@@ -33,17 +33,27 @@ laboratory:
     - 
       category: tools
 
-site:
+guide: 
+  icon: 💡
   name:
   description: | 
-    关于本网站的一些文章，如：指引、测试、...
-  image:
+    本站指引
+  image: 
   docs: 
-    - 
-      icon: 💡 
-      name: 指引
-      category: guide
-    - 
-      icon: 🚀
-      name: 测试
-      category: test
+    - icon: 🚀
+      name: 
+      category: start
+    - icon: 🏷
+      name: 自定义
+      category: custom
+
+test:
+  icon: 
+  name:
+  description:
+  image:
+  docs:
+    - icon: 
+      name: 本站相关
+      category: site
+    
