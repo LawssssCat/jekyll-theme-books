@@ -37,6 +37,7 @@ body {
   padding: 0;
   margin: 0;
   font: map-get($base, font-weight) #{map-get($base, font-size)}/#{map-get($base, line-height)} map-get($base, font-family);
+  color: var(--body-color);
 }
 
 @include block-elements() {
